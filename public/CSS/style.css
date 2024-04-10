@@ -1,0 +1,56 @@
+/* Resetear estilos para una experiencia más consistente en diferentes navegadores */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilos básicos para el cuerpo de la página */
+body {
+    font-family: Arial, sans-serif; /* Tipo de fuente predeterminado */
+    font-size: 16px; /* Tamaño de fuente predeterminado */
+    line-height: 1.5; /* Espaciado entre líneas */
+    background-color: #f0f0f0; /* Color de fondo predeterminado */
+    color: #333; /* Color de texto predeterminado */
+}
+
+/* Estilos para los elementos principales de encabezado */
+h1, h2, h3, h4, h5, h6 {
+    margin-bottom: 10px; /* Espaciado inferior */
+}
+
+/* Estilos básicos para los enlaces */
+a {
+    color: #007bff; /* Color de enlace */
+    text-decoration: none !important; /* Quitar subrayado predeterminado */
+}
+
+a:hover {
+    text-decoration: none !important;/* Subrayado al pasar el ratón */
+}
+
+.divider:after,
+.divider:before {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: #eee;
+}
+.h-custom {
+  height: calc(100% - 73px);
+}
+@media (max-width: 450px) {
+  .h-custom {
+    height: 100%;
+  }
+}
+
+.logo-image{
+    width: 5vw;
+}
+
+.bg-general{
+    background-image: url("../images/fondo.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
