@@ -4,7 +4,7 @@
 <nav class="navbar navbar-expand-lg bg-body-tertiary px-5 fondoNav">
     <div class="d-flex">
         <div class="">
-            <img class="logo-image" src="" alt="" srcset="../../public/images/logo.png">
+            <img class="logo-image rounded-circle" src="" alt="" srcset="../../public/images/logoF.png" >
         </div>
         <div class="d-flex">
             <div class="mx-2 d-flex justify-content-center align-items-center">
