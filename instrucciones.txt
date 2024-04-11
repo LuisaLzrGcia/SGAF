@@ -9,5 +9,6 @@ PARA TRAER CAMBIOS DEL REPOSITORIO REMOTO
 git fetch origin
 git pull origin erick sirve para llamar el ultimo archivo de git
 
-cd +TAB para entrar a la carpeta en la terminal
+cd +TAB para entrar a la carpeta en la terminal despues de salir
+
 

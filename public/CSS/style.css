@@ -50,7 +50,14 @@ a:hover {
 }
 
 .bg-general{
-    background-image: url("../images/fondo.jpeg");
+    background-image: url("../images/Fondonew.jpg");
     background-repeat: no-repeat;
     background-size: cover;
+}
+
+.fondoNav{
+  background-image: url('../images/FondoNav.jpg'); /* Cambia 'ruta/a/imagen.jpg' por la ruta de tu imagen */
+  background-size: cover; /* Esto ajustará la imagen para que cubra todo el fondo del nav */
+  background-position: center; /* Esto centrará la imagen en el fondo del nav */
+  /* Puedes añadir más estilos según sea necesario */ 
 }
