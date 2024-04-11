@@ -16,31 +16,34 @@
 
     /* Estilos para la separación entre cajas de texto */
     .form-group:not(:last-child) {
-            margin-bottom: 10px; /* Agrega un margen inferior de 20px a todos los .form-group excepto el último */
-        }
+        margin-bottom: 10px;
+        /* Agrega un margen inferior de 20px a todos los .form-group excepto el último */
+    }
 
     </style>
 </head>
 
-<body class="bg-general">
+<body style="background-image: url('../../public/images/FondoSGAF.png'); background-size: cover; background-position: center; background-repeat: no-repeat;" >
     <?php
     include_once "../Componets/Navbar.php";
     ?>
     <div class="container contact-form  ; ">
-        <div class="container-fluid w-50 ">
+        <div class="container-fluid w-50  p-0 ">
             <div class="contact-image  text-center">
-                <img src="https://image.ibb.co/kUagtU/rocket_contact.png" alt="rocket_contact" />
+                <img class="rounded-circle" src="" alt="" srcset="../../public/images/LogoForm.png"
+                    style="width: 120px; height: auto;">
             </div>
             <form method="post">
-                <h3 class="text-center">REGISTRO DE USUARIO</h3>
-                <div class="row justify-content-center align-items-center border">
-                    <div class="col-md-6">
+            <div class="d-flex justify-content-center ">
+                <h3 class="text-center title-gradient  d-inline-block p-1 text-center" >REGISTRO DE USUARIO</h3>
+            </div>
+                <div class="row justify-content-center align-items-center mx-auto">
+                    <div class="col-md-6 text-center">
                         <div class="form-group">
-                            <input type="text" name="id" class="form-control" placeholder="ID DE USUARIO *"
-                                value="" />
+                            <input type="text" name="id" class="form-control" placeholder="ID DE USUARIO *" value="" />
                         </div>
                         <div class="form-group">
-                            <input type="text" name="name" class="form-control" placeholder="NOMBRE*" value="" />
+                            <input type="text" name="name" class="form-control" placeholder="NOMBRES*" value="" />
                         </div>
                         <div class="form-group">
                             <input type="text" name="apellidoP" class="form-control" placeholder="APELLIDO PATERNO *"
@@ -55,7 +58,7 @@
                                 value="" />
                         </div>
                         <div class="form-group">
-                            <input type="text" name="direccion" class="form-control" placeholder="DIRECCION *"
+                            <input type="text" name="gmail" class="form-control" placeholder="CORREO ELECTRONICO *"
                                 value="" />
                         </div>
                         <div class="form-group">
@@ -65,13 +68,13 @@
                             <input type="text" name="phone" class="form-control" placeholder="NUMERO DE TELEFONO *"
                                 value="" />
                         </div>
-                        <div class="form-group">
+                        <div class="form-group title-gradient">
                             <h6 for="txtDate">FECHA DE REGISTRO:</h6>
-                            <input type="date" name="fecha" class="form-control" >
+                            <input type="date" name="fecha" class="form-control">
                         </div>
 
                         <div class="form-group  text-center">
-                        <button type="button" class="btn btn-primary float-end" href="#">REGISTRAR</button>
+                            <button type="button" class="btn btn-primary float-end" href="#">REGISTRAR</button>
                         </div>
                     </div>
 

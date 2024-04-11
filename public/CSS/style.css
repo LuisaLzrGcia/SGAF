@@ -56,9 +56,24 @@ a:hover {
     background-size: cover;
 }
 
+
+
 .fondoNav{
   background-image: url('../images/FondoNav.jpg'); /* Cambia 'ruta/a/imagen.jpg' por la ruta de tu imagen */
   background-size: cover; /* Esto ajustará la imagen para que cubra todo el fondo del nav */
   background-position: center; /* Esto centrará la imagen en el fondo del nav */
   /* Puedes añadir más estilos según sea necesario */ 
+}
+
+.title-white{
+  color: white;     
+}
+
+.title-gradient {
+  background: linear-gradient(to right, #ff6b6b, #ffc75f); /* Definir el degradado */
+  -webkit-background-clip: text; /* Establecer el recorte de fondo como texto */
+  background-clip: text; /* Establecer el recorte de fondo como texto para navegadores que no requieren el prefijo -webkit- */
+  color: white; /* Establecer el color del texto */
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000000; /* Agregar un contorno negro al texto */
+
 }
