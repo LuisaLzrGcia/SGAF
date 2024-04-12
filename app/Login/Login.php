@@ -1,27 +1,23 @@
 <?php
-header("Location: ../Main/Main.php");
-?>
-<?php
 include_once ("../Conexion.php");
-// Verificar si se han enviado los datos del formulario
-if (isset($_POST['login']) && isset($_POST['password'])) {
+
+if (isset($_POST['user']) && isset($_POST['password'])) {
     // Obtener usuario y contraseña del formulario
-    $usuario = ($_POST['login']);
-    $password = sha1($_POST['password']);
+    $usuario = ($_POST['user']);
+    $password = ($_POST['password']);
 
 
     // // Incluir el archivo de la clase Usuarios
-    include ("../Login/Validacion.php");
+    include ("../Login/ClaseUsuario.php");
 
     // // Instanciar la clase Usuarios
     $Usuarios = new Usuarios();
 
     // // Intentar iniciar sesión
     $login_result = $Usuarios->loginUsuarios($usuario, $password);
-    //echo '<script>alert("hola")</script>';
 
     // Verificar si el inicio de sesión fue exitoso
-    if ($login_result == 1) {
+    if ($login_result) {
         // Redireccionar a inicio.php
         header("Location: ../Main/Main.php");
         exit; // Salir del script para evitar ejecución adicional

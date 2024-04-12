@@ -9,19 +9,18 @@ class Usuarios
     {
         global $conexion; // Acceder a la conexión establecida fuera de la clase
 
-        $sql = "SELECT * FROM t_usuarios 
-                WHERE usuario = '$usuario' AND password = '$password'";
-        //echo '<script>alert("' . $sql . '")</script>';
+        $sql = "SELECT * FROM `master` 
+                WHERE `user` = '$usuario' AND `password` = '$password'";
+        echo $sql;
         $respuesta = mysqli_query($conexion, $sql);
 
         if ($respuesta && mysqli_num_rows($respuesta) > 0) {
             $datosUsuario = mysqli_fetch_array($respuesta);
-            $_SESSION['usuario']['nombre'] = $datosUsuario['usuario'];
-            $_SESSION['usuario']['id'] = $datosUsuario['id_usuario'];
-            $_SESSION['usuario']['rol'] = $datosUsuario['password'];
-            return 1;
+            $_SESSION['user'] = $datosUsuario['user'];
+            $_SESSION['rol'] = $datosUsuario['rol'];
+            return true;
         } else {
-            return 0;
+            return false;
         }
     }
 }
