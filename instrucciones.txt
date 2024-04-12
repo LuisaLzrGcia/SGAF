@@ -3,7 +3,7 @@ PARA SUBIR CAMBIOS
 git branch
 git add.  # Agrega todos los cambios. 
 git commit -m "Mensaje de commit"  # Confirma los cambios con un mensaje descriptivo
-git push origin 
+git push origin erick
 
 PARA TRAER CAMBIOS DEL REPOSITORIO REMOTO
 git fetch origin

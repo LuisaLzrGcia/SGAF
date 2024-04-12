@@ -9,7 +9,7 @@ class Usuarios
     {
         global $conexion; // Acceder a la conexión establecida fuera de la clase
 
-        $sql = "SELECT * FROM `master` 
+        $sql = "SELECT * FROM `usuarios` 
                 WHERE `user` = '$usuario' AND `password` = '$password'";
         echo $sql;
         $respuesta = mysqli_query($conexion, $sql);
