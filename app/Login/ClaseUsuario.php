@@ -11,7 +11,7 @@ class Usuarios
 
         $sql = "SELECT * FROM `usuarios` 
                 WHERE `user` = '$usuario' AND `password` = '$password'";
-        echo $sql;
+        
         $respuesta = mysqli_query($conexion, $sql);
 
         if ($respuesta && mysqli_num_rows($respuesta) > 0) {

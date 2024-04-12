@@ -34,66 +34,71 @@ if ($_SESSION['user'] && $_SESSION['rol'] == "admin") {
         ?>
     <div class="container contact-form  ; ">
         <div class="container-fluid w-50  p-0 ">
-            <div class="contact-image  text-center">
-                <img class="rounded-circle" src="" alt="" srcset="../../public/images/LogoForm.png"
+            <div class="contact-image  text-center mb-4">
+                <img class="rounded-circle"  src="" alt="" srcset="../../public/images/LogoForm.png"
                     style="width: 120px; height: auto;">
             </div>
-            <form method="post">
-                <div class="d-flex justify-content-center ">
-                    <h3 class="text-center title-gradient  d-inline-block p-1 text-center">REGISTRO DE USUARIO</h3>
-                </div>
-                <div class="row justify-content-center align-items-center mx-auto border">
-                    <div class="col-md-10 container text-center border">
-                        <div class="form-group border">
-                            <label for="usuario" class="bg-white w-auto col">NOMBRE DE USUARIO</label>
-                            <input class="col" type="text" name="usuario" class="form-control" value="" />
+            <form method="post" action="../utils/Registrar.php">
+                <div class="container title-gradient">
+                    <div class="row  ">
+                        <div class="col-md-6 offset-md-3">
+                            <div class="signup-form">
+                                <form action="" class="mt-5 border p-4 bg-light shadow">
+                                    <h4 class="mb-5 text-center title-gradient">REGISTRO DE USUARIOS</h4>
+                                    <div class="row">
+                                        <div class="mb-3 col-md-12">
+                                            <label>Nombre<span>*</span></label>
+                                            <input type="text" name="nombre" class="form-control">
+                                        </div>
+
+                                        <div class="mb-3 col-md-6">
+                                            <label>Primer Apellido<span>*</span></label>
+                                            <input type="text" name="apellidoP" class="form-control">
+                                        </div>
+
+                                        <div class="mb-3 col-md-6">
+                                            <label>Segundo Apellido<span>*</span></label>
+                                            <input type="text" name="apellidoM" class="form-control">
+                                        </div>
+
+                                        <div class="mb-3 col-md-12">
+                                            <label>Empresa<span>*</span></label>
+                                            <input type="text" name="empresa" class="form-control">
+                                        </div>
+
+                                        <div class="mb-3 col-md-6">
+                                            <label>RFC<span>*</span></label>
+                                            <input type="text" name="rfc" class="form-control">
+                                        </div>
+
+                                        <div class="mb-3 col-md-6">
+                                            <label>ROL<span>*</span></label>
+                                            <input type="text" name="rol" class="form-control">
+                                        </div>
+
+                                        <div class="mb-3 col-md-12">
+                                            <label>Correo electronico<span>*</span></label>
+                                            <input type="email" name="correo" class="form-control">
+                                        </div>
+
+                                        <div class="mb-3 col-md-12">
+                                            <label>Contraseña<span>*</span></label>
+                                            <input type="password" name="password" class="form-control">
+                                        </div>
+                                        <div class="mb-3 col-md-12">
+                                            <label>Fecha de registro<span>*</span></label>
+                                            <input type="date" name="fecha" class="form-control">
+                                        </div>
+                                        <div class="col-md-12">
+                                            <button class="btn btn-primary float-end">Registrar</button>
+                                        </div>
+                                    </div>
+                                </form>
+                                
+                            </div>
                         </div>
-                        <div class="form-group">
-                            <label for="apellidoP" class="bg-white w-auto col">APELLIDO PATERNO :</label>
-                            <input class="col" type="text" name="apellidoP" class="form-control" value="" />
-
-                        </div>
-                        <div class="form-group">
-                            <label for="apellidoP" class="bg-white w-auto col">APELLIDO MATERNO :</label>
-                            <input class="col" type="text" name="apellidoM" class="form-control" value="" />
-
-                        </div>
-                        <div class="form-group">
-                            <label for="apellidoP" class="bg-white w-auto col">NOMBRE DE LA EMPRESA :</label>
-                            <input class="col" type="text" name="empresa" class="form-control" value="" />
-
-                            <div class="form-group">
-                                <label for="empresa" class="bg-white w-auto col">RFC :</label>
-                                <input class="col" type="text" name="rfc" class="form-control" value="" />
-
-                            </div>
-                            <div class="form-group">
-
-                                <label for="rol" class="bg-white w-auto col">ROL :</label>
-                                <input class="col" type="text" name="rol" class="form-control" value="" />
-                            </div>
-                            <div class="form-group">
-                                <label for="gmail" class="bg-white w-auto col">CORREO ELECTRONICO :</label>
-                                <input class="col" type="text" name="gmail" class="form-control" value="" />
-
-                            </div>
-                            <div class="form-group">
-
-                                <label for="password" class="bg-white w-auto col">CONTRASEÑA:</label>
-                                <input class="col" type="text" name="password" class="form-control" value="" />
-
-                            </div>
-                            <div class="form-group ">
-                                <label for="password" class="bg-white w-auto col">FECHA DE REGISTRO:</label>
-                                <input class="col" type="date" name="fecha" class="form-control" value="" />>
-                            </div>
-
-                            <div class="form-group  text-center">
-                                <button type="button" class="btn btn-primary float-end" href="#">REGISTRAR</button>
-                            </div>
-                        </div>
-
                     </div>
+                </div>
             </form>
         </div>
     </div>
