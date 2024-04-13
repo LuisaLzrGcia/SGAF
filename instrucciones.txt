@@ -11,5 +11,5 @@ git pull origin erick sirve para llamar el ultimo archivo de git
 
 cd +TAB para entrar a la carpeta en la terminal despues de salir
 
-para ingresar a la carpeta se usa el cd. 
+para ingresar a la carpeta se usa el cd .\             
 
