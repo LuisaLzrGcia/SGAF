@@ -15,9 +15,7 @@
             text-align: justify;
         }
     </style>
-
   </head>
-
   <body style="background-image: url('../SGAF/public/images/FondoLogin.png'); background-repeat:no-repeat; background-size: cover; background: position 100%;;">
     <div class="container-fluid m-0 p-0 border">
         <nav class="navbar navbar-expand-lg  px-5 justify-content-between bg-dark navbar-dark ">
@@ -46,11 +44,55 @@
                   <a class="nav-link title-gradient" style="color: #15dcff" href="#">Contactanos</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" href="#">Iniciar sesion</a>
-                  </li>
+                  <a class="nav-link active btn btn-primary   cursor: pointer;" id="openLoginModal">Iniciar sesión</a>
+              </li>
               </ul>
             </div>
           </nav>
+
+ <!-- Modal de inicio de sesión -->
+ <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog ">
+      <div class="modal-content">
+          <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">INICIAR SESIÓN </h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body  text-center border ">
+              <!-- Aquí va el formulario de inicio de sesión -->
+             <form method="POST" action="./app/Login/Login.php">
+
+                
+                <!-- Email input -->
+                <div data-mdb-input-init class="form-outline mx-auto border ">
+                  <input type="text" id="user" name="user" class="form-control form-control-lg "  placeholder="Ingresa tu correo " style="width: 250px;" />
+                  <label class="form-label title-gradient" for="form3Example3"
+                    >Correo electronico</label
+                  >
+                </div>
+
+                <!-- Password input -->
+                <div data-mdb-input-init class="form-outline mb-3 mx-auto">
+                  <input
+                    type="password"
+                    id="form3Example4"
+                    name="password"
+                    class="form-control form-control-lg"
+                    placeholder="Ingresa contraseña"
+                    style="width: 250px;" 
+                  />
+                  <label class="form-label title-gradient" for="form3Example4">Contraseña</label>
+                </div>
+
+                  <button type="submit" class="btn btn-primary">Iniciar sesión</button>
+              </form>
+          </div>
+          <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+          </div>
+      </div>
+  </div>
+</div>
 
 <div class="d-flex border" style="color: blanchedalmond;">
     <h1>"Simplifica tus Impuestos, Organiza tus Finanzas"<h1>
@@ -76,5 +118,14 @@
         
           </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+      // JavaScript para abrir el modal de inicio de sesión al hacer clic en el enlace de la barra de navegación
+      document.getElementById('openLoginModal').addEventListener('click', function() {
+          var loginModal = new bootstrap.Modal(document.getElementById('loginModal'));
+          loginModal.show();
+      });
+    </script>
+
   </body>
 </html>
