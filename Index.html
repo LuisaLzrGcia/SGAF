@@ -51,8 +51,8 @@
           </nav>
 
  <!-- Modal de inicio de sesión -->
- <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog ">
+ <div class="modal" id="loginModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
       <div class="modal-content">
           <div class="modal-header">
               <h5 class="modal-title" id="exampleModalLabel">INICIAR SESIÓN </h5>
@@ -64,16 +64,19 @@
 
                 
                 <!-- Email input -->
-                <div data-mdb-input-init class="form-outline mx-auto border ">
+                <div data-mdb-input-init class="d-flex justify-content-center align-items-center">
+                 <div>
                   <input type="text" id="user" name="user" class="form-control form-control-lg "  placeholder="Ingresa tu correo " style="width: 250px;" />
                   <label class="form-label title-gradient" for="form3Example3"
                     >Correo electronico</label
                   >
+                 </div>
                 </div>
 
                 <!-- Password input -->
-                <div data-mdb-input-init class="form-outline mb-3 mx-auto">
-                  <input
+                <div data-mdb-input-init class="d-flex justify-content-center align-items-center">
+                  <div>
+                    <input
                     type="password"
                     id="form3Example4"
                     name="password"
@@ -82,6 +85,7 @@
                     style="width: 250px;" 
                   />
                   <label class="form-label title-gradient" for="form3Example4">Contraseña</label>
+                  </div>
                 </div>
 
                   <button type="submit" class="btn btn-primary">Iniciar sesión</button>
