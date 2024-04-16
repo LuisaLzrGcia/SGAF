@@ -152,11 +152,7 @@ if (session_status() !== 2)
         btnSelecionado = document.getElementById("btnNavegadorInicio");
         btnSelecionado.classList.remove('fw-bold');
         btnSelecionado.classList.add('fw-bold');
-    } else if (valorBtn === 'Motor') {
-        btnSelecionado = document.getElementById("btnNavegadorMotor");
-        btnSelecionado.classList.remove('fw-bold');
-        btnSelecionado.classList.add('fw-bold');
-    }
+    } 
 
 </script>
 
