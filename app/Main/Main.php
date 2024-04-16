@@ -30,7 +30,7 @@ if ($_SESSION['user']) {
             <div class="container-fluid w-100">
                 <div class="row">
                     <div class="col btn btn-light shadow-sm m-3">
-                        <a class="" href="../">
+                        <a class="" href="../Registrar/ResgistrarUsuario.php">
                             <div class="d-flex justify-content-center">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" fill="currentColor"
                                     class="bi bi-person-add" viewBox="0 0 16 16">
