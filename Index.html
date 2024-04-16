@@ -232,6 +232,11 @@
           var loginModal = new bootstrap.Modal(document.getElementById('loginModal'));
           loginModal.show();
       });
+      document.addEventListener("DOMContentLoaded", (event) => {
+        sessionStorage.setItem("bttnSelecionado", "Inicio")
+      }
+);
+
     </script>
 <script>
     // Función para abrir el offcanvas de beneficios
