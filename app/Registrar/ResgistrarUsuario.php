@@ -32,7 +32,7 @@ if ($_SESSION['user'] && $_SESSION['rol'] == "admin") {
     <?php
         include_once "../Componets/Navbar/NavbarAdmin.php";
         ?>
-    <div class="container contact-form  ; ">
+    <div class="container contact-form border  ; ">
         <div class="container-fluid w-50  p-0 ">
             <div class="contact-image  text-center mb-4">
                 <img class="rounded-circle"  src="" alt="" srcset="../../public/images/LogoForm.png"
@@ -101,6 +101,8 @@ if ($_SESSION['user'] && $_SESSION['rol'] == "admin") {
                 </div>
             </form>
         </div>
+        
+        <button onclick="history.back();">Regresar</button>
     </div>
 </body>
 

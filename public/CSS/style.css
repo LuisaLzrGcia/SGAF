@@ -77,3 +77,9 @@ a:hover {
   text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000000; /* Agregar un contorno negro al texto */
 
 }
+
+.texto-negro {
+  color: #000000; /* Un tono más oscuro de negro */
+  font-weight: bold; /* Opcional: para hacer el texto más destacado */
+}
+

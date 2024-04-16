@@ -14,6 +14,16 @@
         .card-text {
             text-align: justify;
         }
+
+      
+        .offcanvas-header {
+            text-align: center;
+        }
+        .texto-negro {
+  color: #000000; /* Un tono más oscuro de negro */
+  font-weight: bold; /* Opcional: para hacer el texto más destacado */
+}
+
     </style>
   </head>
   <body style="background-image: url('../SGAF/public/images/FondoIndex.'); background-repeat:no-repeat; background-size: cover; background-attachment: fixed; background: position center;;">
@@ -28,8 +38,10 @@
             </div>
               <ul class="nav nav-pills">
                 <li class="nav-item">
-                  <a class="nav-link title-gradient" style="color: #15dcff" href="#">Beneficios</a>
+                  <a class="nav-link title-gradient" style="color: #15dcff; cursor: pointer;" onclick="openBenefitsOffcanvas()">Beneficios</a>
                 </li>
+
+                
                 <li class="nav-item dropdown">
                   <a class="nav-link dropdown-toggle title-gradient" data-bs-toggle="dropdown" style="color: #15dcff" href="#">¿Para quien?</a>
                   <ul class="dropdown-menu "  >
@@ -49,6 +61,8 @@
               </ul>
             </div>
           </nav>
+
+        
 
  <!-- Modal de inicio de sesión -->
  <div class="modal" id="loginModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -134,12 +148,11 @@
                 <div class="card-body">
 
                     <ul class="card-text" style="color:rgb(0, 0, 0)">
-                  <h5 class="card-title">Maximiza tus devoluciones con nuestro equipo de expertos fiscales</h5>
-                  <li>¿Quieres asegurarte de aprovechar al máximo tus deducciones fiscales?</li>
-                  <p>Deja de preocuparte por la preparación de impuestos y comienza a disfrutar de la temporada de declaración.
-                    Nuestro equipo de contadores profesionales está listo para ayudarte, con nuestra plataforma de gestión de archivos fiscales, recopilaremos y revisaremos tus documentos para garantizar que no te pierdas ninguna
-                     oportunidad de ahorro. ¡Haz tu declaración de impuestos con confianza hoy mismo!
-                  </p>
+                  <h5 class="card-title">Libérate del estrés fiscal con nuestro servicio todo en uno</h5>
+                  <li>Optimiza tus finanzas con nuestra solución integral</li>
+                  <li>No se trata solo de hacer tu declaración de impuestos, se trata de optimizar tu situación financiera. </li>
+                  <li> Con nuestro servicio, no solo obtienes una declaración precisa y puntual, sino también asesoramiento estratégico para maximizar tus ahorros fiscales y planificar tu futuro financiero.
+                  </li>
                     </ul>
                 </div>
               </div> 
@@ -185,6 +198,30 @@
           </div>
         </div>
 
+        
+
+     <!-- Offcanvas para beneficios -->
+<div class="offcanvas offcanvas-end " tabindex="-1" id="benefitsOffcanvas" aria-labelledby="benefitsOffcanvasLabel" style="background: linear-gradient(to right, rgb(221, 76, 235), rgb(30, 245, 120));">
+  
+  <div class="offcanvas-header  ";>
+      
+    <h4 class="offcanvas-title texto-negro" id="benefitsOffcanvasLabel" >BENEFICIOS</h4>
+      <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+
+  <div class="offcanvas-body   ">
+      <!-- Contenido del offcanvas -->
+      <ul style="text-align: justify; color: rgb(0, 0, 0);">
+          <li><span class="texto-negro">Ahorro de tiempo:</span>  Con nuestro servicio, los clientes pueden ahorrar tiempo valioso al tener sus documentos fiscales organizados y listos para su declaración de impuestos. </li>
+          <li><span class="texto-negro">Profesionalismo:</span> Nuestros contadores son expertos en el campo fiscal y están capacitados para maximizar las devoluciones y minimizar las posibilidades de auditoría.</li>
+          <li><span class="texto-negro">Seguridad y cumplimiento:</span> Nuestra plataforma de gestión de archivos fiscales garantiza la seguridad y confidencialidad de los documentos del cliente, cumpliendo con todas las regulaciones fiscales y de privacidad vigentes. </li>
+          <li><span class="texto-negro">Asesoramiento personalizado:</span> Nuestros contadores ofrecen un servicio personalizado y están disponibles para responder preguntas y proporcionar asesoramiento fiscal en cualquier momento del año, no solo durante la temporada de impuestos.</li>
+          <!-- Agrega más beneficios según sea necesario -->
+      </ul>
+  </div>
+</div>
+
+
         </div>
         
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
@@ -196,6 +233,15 @@
           loginModal.show();
       });
     </script>
+<script>
+    // Función para abrir el offcanvas de beneficios
+    function openBenefitsOffcanvas() {
+        var offcanvas = new bootstrap.Offcanvas(document.getElementById('benefitsOffcanvas'));
+        offcanvas.show();
+        // Ajusta la posición del offcanvas para que aparezca desde el contenedor de navegación
+        document.getElementById('benefitsOffcanvas').style.top = document.querySelector('.navbar').offsetHeight + 'px';
+    }
+</script>
 
   </body>
 </html>

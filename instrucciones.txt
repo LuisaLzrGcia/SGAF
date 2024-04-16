@@ -1,7 +1,7 @@
 PARA SUBIR CAMBIOS
 #Verifica que la rama sea erick usando
 git branch
-git add.  # Agrega todos los cambios. 
+git add .  # Agrega todos los cambios. 
 git commit -m "Mensaje de commit"  # Confirma los cambios con un mensaje descriptivo
 git push origin erick
 
