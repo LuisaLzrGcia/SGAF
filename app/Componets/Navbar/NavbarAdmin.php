@@ -8,16 +8,7 @@ if (session_status() !== 2)
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
 
 
-<style>
-    .nav-link.active svg {
-        fill: black;
-    }
 
-    .nav-link.active .ps-1 {
-        color: black;
-        font-weight: bold;
-    }
-</style>
 
 <nav class="navbar navbar-expand-lg bg-body-tertiary px-5 fondoNav justify-content-between">
     <div class="d-flex">
@@ -57,7 +48,7 @@ if (session_status() !== 2)
             </div>
 
             <div class="mx-2 d-flex justify-content-center align-items-center">
-                <a class="nav-link d-flex justify-content-center align-items-center" href="http://"
+                <a class="nav-link d-flex justify-content-center align-items-center" href="../Registrar/ResgistrarUsuario.php"
                     onclick="bttnSelecionado(`Administrar`)">
                     <div class="d-flex justify-content-center align-items-center">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
@@ -147,11 +138,23 @@ if (session_status() !== 2)
     if (valorBtn === 'Usuarios') {
         btnSelecionado = document.getElementById("btnNavegadorUsuarios");
         btnSelecionado.classList.remove('fw-bold');
-        btnSelecionado.classList.add('fw-bold');
+        btnSelecionado.classList.add('text-white');
     } else if (valorBtn === 'Inicio') {
         btnSelecionado = document.getElementById("btnNavegadorInicio");
         btnSelecionado.classList.remove('fw-bold');
-        btnSelecionado.classList.add('fw-bold');
+        btnSelecionado.classList.add('text-white');
+    } else if (valorBtn === 'Administrar') {
+        btnSelecionado = document.getElementById("btnNavegadorAdministrar");
+        btnSelecionado.classList.remove('fw-bold');
+        btnSelecionado.classList.add('text-white');
+    } else if (valorBtn === 'Permisos') {
+        btnSelecionado = document.getElementById("btnNavegadorPermisos");
+        btnSelecionado.classList.remove('fw-bold');
+        btnSelecionado.classList.add('text-white');
+    } else if (valorBtn === 'Motor') {
+        btnSelecionado = document.getElementById("btnNavegadorMotor");
+        btnSelecionado.classList.remove('fw-bold');
+        btnSelecionado.classList.add('text-white');
     } 
 
 </script>
