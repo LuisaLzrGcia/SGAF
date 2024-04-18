@@ -24,13 +24,11 @@ if ($_SESSION['user'] && $_SESSION['rol'] == "admin") {
         margin-bottom: 10px;
         /* Agrega un margen inferior de 20px a todos los .form-group excepto el último */
     }
-
-   
     </style>
 </head>
 
 <body
-    style="background-image: url('../../public/images/FondoSGAF.png'); background-size: cover; background-position: center; background-repeat: no-repeat;">
+    style="background-image: url('../../public/images/FondoSGAF.png'); background-size: cover; background-position: center; background-repeat: no-repeat; margin: 0; padding: 0; height: 100vh;">
     <?php
         include_once "../Componets/Navbar/NavbarAdmin.php";
         ?>
@@ -56,65 +54,77 @@ if ($_SESSION['user'] && $_SESSION['rol'] == "admin") {
 
         </div>
 
-        
+
         <!-- Modal de inicio de sesión -->
-        <div class="modal fade " id="loginModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" >
-            <div class="modal-dialog ">
-                <div class="modal-content " style="background-color:aqua">
+        <div class="modal fade " id="loginModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog border border-0 shadow ">
+                <div class="modal-content "
+                    style="background: linear-gradient(to right, #8ad4e0, #31caf8); color:black;">
                     <div class="modal-header ">
                         <h5 class="modal-title" ; id="exampleModalLabel">REGISTRO </h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body  text-center  ">
                         <!-- Aquí va el formulario de inicio de sesión -->
-                        <form method="post" action="../utils/Registrar.php">
+                        <form method="post" action="../utils/Registrar.php ">
                             <div class="container ">
                                 <div class="row">
                                     <div class="col-md-6 offset-md-3 ">
                                         <div class="signup-form">
-                                            <form action="" class="mt-5 border p-4 bg-light shadow">
+                                            <form action="" class="p-4 bg-light shadow">
 
                                                 <div class="row">
-                                                    <div class="mb-3 col-md-12">
+                                                    <div class="mb-2 col-md-12">
                                                         <label>Nombre<span>*</span></label>
                                                         <input type="text" name="nombre" class="form-control">
                                                     </div>
 
-                                                    <div class="mb-3 col-md-6">
+                                                    <div class="mb-2 col-md-6">
                                                         <label>Primer Apellido<span>*</span></label>
                                                         <input type="text" name="apellidoP" class="form-control">
                                                     </div>
 
-                                                    <div class="mb-3 col-md-6">
+                                                    <div class="mb-2 col-md-6">
                                                         <label>Segundo Apellido<span>*</span></label>
                                                         <input type="text" name="apellidoM" class="form-control">
                                                     </div>
 
-                                                    <div class="mb-3 col-md-12">
+                                                    <div class="mb-2 col-md-12">
                                                         <label>Empresa<span>*</span></label>
-                                                        <input type="text" name="empresa" class="form-control">
+                                                        <input type="text" name="empresa" class="form-control" required>
                                                     </div>
 
-                                                    <div class="mb-3 col-md-6">
+                                                    <div class="mb-2 col-md-12">
                                                         <label>RFC<span>*</span></label>
-                                                        <input type="text" name="rfc" class="form-control">
+                                                        <input type="text" name="rfc" class="form-control" required>
                                                     </div>
 
-                                                    <div class="mb-3 col-md-6">
+                                                    <div class="mb-2 col-md-12">
                                                         <label>ROL<span>*</span></label>
-                                                        <input type="text" name="rol" class="form-control">
+                                                        <select class="form-select"name="rol" aria-label="Default select example">
+                                                            <option selected>Seleccionar</option>
+                                                            <option value="user">Cliente</option>
+                                                            <option value="admin">Administrador</option>
+                                                           
+                                                        </select>
                                                     </div>
 
-                                                    <div class="mb-3 col-md-12">
+                                                    <div class="mb-2 col-md-12">
                                                         <label>Correo electronico<span>*</span></label>
-                                                        <input type="email" name="correo" class="form-control">
+                                                        <input type="email" name="correo" class="form-control" required
+                                                            pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}">
+                                                        <span id="error-correo" class="text-danger"
+                                                            style="display: none; ">Por favor, introduce un correo
+                                                            electrónico válido.</span>
                                                     </div>
 
-                                                    <div class="mb-3 col-md-12">
+
+                                                    <div class="mb-2 col-md-12">
                                                         <label>Contraseña<span>*</span></label>
-                                                        <input type="password" name="password" class="form-control">
+                                                        <input type="password" name="password" class="form-control"
+                                                            required>
                                                     </div>
-                                                    <div class="mb-3 col-md-12">
+                                                    <div class="mb-2 col-md-12">
                                                         <label>Fecha de registro<span>*</span></label>
                                                         <input type="date" name="fecha" class="form-control">
                                                     </div>
@@ -136,7 +146,7 @@ if ($_SESSION['user'] && $_SESSION['rol'] == "admin") {
                 </div>
             </div>
         </div>
-        
+
 
         <button onclick="history.back();">Regresar</button>
     </div>
@@ -149,6 +159,20 @@ if ($_SESSION['user'] && $_SESSION['rol'] == "admin") {
     });
     document.addEventListener("DOMContentLoaded", (event) => {
         sessionStorage.setItem("bttnSelecionado", "Inicio")
+    });
+    </script>
+
+    <script>
+    document.querySelector('input[name="correo"]').addEventListener('input', function() {
+        var correo = this.value;
+        var regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+        var errorCorreo = document.getElementById('error-correo');
+
+        if (!regex.test(correo)) {
+            errorCorreo.style.display = 'block';
+        } else {
+            errorCorreo.style.display = 'none';
+        }
     });
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>

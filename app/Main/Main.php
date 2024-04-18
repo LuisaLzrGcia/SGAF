@@ -21,6 +21,7 @@ if ($_SESSION['user']) {
             include_once "../Componets/Navbar/NavbarAdmin.php";
         }else{
             include_once "../Componets/Navbar/NavbarUser.php";
+
         }
         ?>
         <div class="mx-5">
@@ -62,7 +63,7 @@ if ($_SESSION['user']) {
                         </a>
                     </div>
                     <div class="col btn btn-light shadow-sm m-3">
-                        <a class="" href="http://">
+                        <a class="" href="../Main/Cliente.php">
                             <div class="d-flex justify-content-center">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" fill="currentColor"
                                     class="bi bi-search" viewBox="0 0 16 16">
