@@ -101,14 +101,14 @@ if ($_SESSION['user'] && $_SESSION['rol'] == "admin") {
 
                                                     <div class="mb-2 col-md-12">
                                                         <label>ROL<span>*</span></label>
-                                                        <select class="form-select"name="rol" aria-label="Default select example">
+                                                        <select class="form-select" name="rol"
+                                                            aria-label="Default select example">
                                                             <option selected>Seleccionar</option>
                                                             <option value="user">Cliente</option>
                                                             <option value="admin">Administrador</option>
-                                                           
+
                                                         </select>
                                                     </div>
-
                                                     <div class="mb-2 col-md-12">
                                                         <label>Correo electronico<span>*</span></label>
                                                         <input type="email" name="correo" class="form-control" required
@@ -117,7 +117,6 @@ if ($_SESSION['user'] && $_SESSION['rol'] == "admin") {
                                                             style="display: none; ">Por favor, introduce un correo
                                                             electrónico válido.</span>
                                                     </div>
-
 
                                                     <div class="mb-2 col-md-12">
                                                         <label>Contraseña<span>*</span></label>

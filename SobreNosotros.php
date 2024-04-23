@@ -32,16 +32,17 @@
   <div class="container-fluid m-0 p-0 border">
     <nav class="navbar navbar-expand-lg  px-4 justify-content-between bg-dark navbar-dark ">
       <div class="container-fluid">
-        <div class="d-flex align-items-center  p-0 ">
+        <div class="d-flex align-items-center p-0 ">
           <a class="navbar-brand" href="#">
             <img src="../SGAF/public/images/logoF.png" alt="" style="width:80px; " class="rounded-pill">
           </a>
           <h4 class="navbar-text  text-white  p-0 ">SISTEMA GESTIÓN DE ARCHIVOS FISCALES</h4>
         </div>
         <ul class="nav nav-pills">
-          <li class="nav-item">
+        <li class="nav-item">
             <a class="nav-link title-gradient" style="color: #15dcff" href="../SGAF/Index.html">Inicio</a>
           </li>
+
           <li class="nav-item">
             <a class="nav-link title-gradient" style="color: #15dcff; cursor: pointer;"
               onclick="openBenefitsOffcanvas()">Beneficios</a>
@@ -55,7 +56,7 @@
               <li><a class="dropdown-item" href="#" data-modal="modalIndividual">Individual</a></li>
             </ul>
           <li class="nav-item">
-            <a class="nav-link title-gradient" style="color: #15dcff" href="../SGAF/SobreNosotros.php">Sobre nosotros</a>
+            <a class="nav-link title-gradient" style="color: #15dcff" href="#">Sobre nosotros</a>
           </li>
           </li>
           <li class="nav-item">
@@ -67,6 +68,7 @@
         </ul>
       </div>
     </nav>
+
 
 
 
@@ -156,102 +158,40 @@
 </div>
 
 
-    <div class="d-inline-flex mt-3 mx-4 title-gradient " style="color: rgb(0, 0, 0);">
-      <h1 style="font-size: 50px;">"Simplifica tus Impuestos,<br>Organiza tus Finanzas"<h1>
+<div class="d-flex mt-3 my-3  title-gradient justify-content-center border" style="color: rgb(0, 0, 0);">
+  <h1 style="font-size: 50px;">"Existimos para trabajar contigo"</h1>
+</div>
 
+<div class="container mb-3">
+    <div class="row">
+        <div class="col-md-6">
+            <!-- Contenido de la primera columna -->
+            <h2>Misión</h2>
+            <p>Entregarle al cliente entera satisfacción de sus requerimientos, aplicando las mejores prácticas para implentar servicios
+               a la medida y correcta ejecución, para posicionar nuestros desarrollos en los primeros planos.</p>
+       <h2>Vision</h2>
+       <p>Promover relaciones de negocios que vayan de la mano con nuestros valores éticos, se conviertan en acciones y nos permita combatir la corrupción,
+         la discriminación y el apoyo a la diversidad, apegándonos a nuestros principios empresariales.</p>
+       </p>
+       <h2>Valores</h2>
+       <ul>
+       <li>Compromiso</li>
+       <li>Perseverancia</li>
+       <li>Objetividad</li>
+       <li>Colaboración</li>
+       </ul>
+
+              </div>
+        <div class="col-md-6">
+            <!-- Contenido de la segunda columna -->
+            <img src="./public/images/LogoEngsol.png " width="500">
+           
+        </div>
     </div>
-
-
-    <div class=" d-flex ">
-      <div class="card w-25  mx-5 my-2 "
-        style="background: linear-gradient(to right, rgba(81, 3, 226, 0.801), rgb(127, 167, 253));">
-        <img src="../SGAF/public/images/Imagenes de inicio/Organizar.jpg" class="card-img-top w-75 mt-3 mx-auto"
-          alt="...">
-        <div class="card-body ">
-          <ul class="card-text" style="color:rgb(0, 0, 0)">
-            <h5 class="card-title">Almacena y Organiza tus archivos</h5>
-            <li>Con nuestro sistema de gestión de archivos fiscales, simplificamos la vida de nuestros usuarios al
-              ofrecer una solución integral para organizar y almacenar sus documentos financieros de manera segura y
-              conveniente.</li>
-            <li>Nuestra plataforma intuitiva permite a los usuarios cargar y clasificar fácilmente sus documentos
-              fiscales, como recibos, facturas, estados de cuenta y otros registros importantes.</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="card w-25 mx-5 my-2 "
-        style="background: linear-gradient(to right, rgba(2, 174, 204, 0.774), rgb(5, 235, 101));">
-        <img src="../SGAF/public/images/Imagenes de inicio/Anuncio2.png"
-          class="card-img-top w-77 mt-3 p-2 mx-auto rounded " alt="...">
-        <div class="card-body">
-
-          <ul class="card-text" style="color:rgb(3, 0, 0)">
-            <h5 class="card-title">Deja tus impuestos en manos expertas, con la ayuda de nuestra plataforma</h5>
-            <li> Nuestra plataforma de gestión de archivos fiscales te ofrece la tranquilidad de tener tus documentos
-              organizados, mientras que nuestros contadores expertos se encargan de todo el trabajo pesado.</li>
-            <li>Deja de preocuparte por la preparación de impuestos y comienza a disfrutar de la temporada de
-              declaración. Con nuestra plataforma de gestión de archivos fiscales y la experiencia de nuestros
-              contadores.</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="card w-25 mx-5 my-2 "
-        style="background: linear-gradient(to right, rgb(7, 178, 201), rgb(2, 4, 163));">
-        <img src="../SGAF/public/images/Imagenes de inicio/Anuncio3.png"
-          class="card-img-top w-80 mt-2 p-2  mx-auto rounded" alt="...">
-        <div class="card-body">
-
-          <ul class="card-text" style="color:rgb(0, 0, 0)">
-            <h5 class="card-title">Libérate del estrés fiscal con nuestro servicio todo en uno</h5>
-            <li>Optimiza tus finanzas con nuestra solución integral</li>
-            <li>No se trata solo de hacer tu declaración de impuestos, se trata de optimizar tu situación financiera.
-            </li>
-            <li> Con nuestro servicio, no solo obtienes una declaración precisa y puntual, sino también asesoramiento
-              estratégico para maximizar tus ahorros fiscales y planificar tu futuro financiero.
-            </li>
-          </ul>
-        </div>
-      </div>
-
-    </div>
-    <!-- El d-flex se ocupa para mover los contenedores de un lado a otro -->
-    <div class="mt-3 text-center">
-      <div style="color: rgb(0, 66, 110); display: inline-block;">
-        <h1>Tu contador de cabecera... ¡y más!</h1>
-      </div>
-    </div>
-
-    <div class="d-flex mt-4 justify-content-center">
-      <div class="card mb-4">
-        <div class="card-header p-3">
-        </div>
-        <div class="card-body  d-flex justify-content-between">
-          <div style="text-align: left;">
-            <h5 class="card-title text-center">Asesórate con contadores</h5>
-            <ul class="card-text">
-              <li class="card-text">Whatsapp para resolver dudas cuando quieras</li>
-              <li>Teléfono para hablar con contadores</li>
-            </ul>
-            <div class="text-center">
-              <a href="#" class="btn btn-primary">Contactanos</a>
-            </div>
-          </div>
-
-          <div style="text-align: center;">
-            <h5 class="card-title ">Cumple al 100% con el SAT</h5>
-            <ul class="card-text">
-              <li class="card-text">Hacemos tus declaraciones mensuales</li>
-              <li>Dedícale solo 5 minutos al mes</li>
-            </ul>
-            <div class="text-center">
-              <a href="#" class="btn btn-primary">Contactanos</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
+</div>
+<div style="text-align: center;">
+  <h6>Copyright © 2021  ENGSOL TELEKOM GROUP - Todos los derechos reservados.</h6>
+</div>
 
 
     <!-- Offcanvas para beneficios -->
