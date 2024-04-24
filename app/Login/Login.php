@@ -6,14 +6,13 @@ if (isset($_POST['user']) && isset($_POST['password'])) {
     $usuario = ($_POST['user']);
     $password = ($_POST['password']);
 
-
-    // // Incluir el archivo de la clase Usuarios
+    // Incluir el archivo de la clase Usuarios
     include ("../Login/ClaseUsuario.php");
 
-    // // Instanciar la clase Usuarios
+    // Instanciar la clase Usuarios
     $Usuarios = new Usuarios();
 
-    // // Intentar iniciar sesión
+    // Intentar iniciar sesión
     $login_result = $Usuarios->loginUsuarios($usuario, $password);
 
     // Verificar si el inicio de sesión fue exitoso
@@ -22,11 +21,13 @@ if (isset($_POST['user']) && isset($_POST['password'])) {
         header("Location: ../Main/Main.php");
         exit; // Salir del script para evitar ejecución adicional
     } else {
-        // Mostrar mensaje de error
-        echo "Error: Usuario o contraseña incorrectos.";
+        // Si el inicio de sesión falló, devolver un mensaje de error en formato JSON
+        $response = array("success" => false, "error" => "Usuario o contraseña incorrectos.");
+        echo json_encode($response);
     }
 } else {
     // Manejar el caso en que los datos del formulario no se hayan enviado correctamente
-    echo "Error: Datos de inicio de sesión no recibidos correctamente.";
+    $response = array("success" => false, "error" => "Datos de inicio de sesión no recibidos correctamente.");
+    echo json_encode($response);
 }
 ?>
