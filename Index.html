@@ -59,7 +59,8 @@
           </li>
           </li>
           <li class="nav-item">
-            <a class="nav-link title-gradient" style="color: #15dcff" href="#">Contactanos</a>
+            <a class="nav-link title-gradient" style="color: #15dcff" cursor: pointer;"
+            onclick="openBenefitsOffcanvas()">Contactanos</a>
           </li>
           <li class="nav-item">
             <a class="nav-link active btn btn-primary   cursor: pointer;" id="openLoginModal">Iniciar sesión</a>
@@ -255,7 +256,7 @@
 
 
     <!-- Offcanvas para beneficios -->
-    <div class="offcanvas offcanvas-end " tabindex="-1" id="benefitsOffcanvas" aria-labelledby="benefitsOffcanvasLabel"
+    <div class="offcanvas offcanvas-start " tabindex="-1" id="benefitsOffcanvas" aria-labelledby="benefitsOffcanvasLabel"
       style="background: linear-gradient(to right, rgb(221, 76, 235), rgb(30, 245, 120));">
       <div class="offcanvas-header  " ;>
 
@@ -280,6 +281,32 @@
       </div>
     </div>
 
+        <!-- Offcanvas para Contactos -->
+        <div class="offcanvas offcanvas-end " tabindex="-1" id="contactosOffcanvas" aria-labelledby="benefitsOffcanvasLabel"
+        style="background: linear-gradient(to right, rgb(221, 76, 235), rgb(30, 245, 120));">
+        <div class="offcanvas-header  " ;>
+  
+          <h4 class="offcanvas-title texto-negro" id="contactosOffcanvasLabel">contacto</h4>
+          <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body   ">
+          <!-- Contenido del offcanvas -->
+          <ul style="text-align: justify; color: rgb(0, 0, 0);">
+            <li><span class="texto-negro">Ahorro de tiempo:</span> Con nuestro servicio, los clientes pueden ahorrar
+              tiempo valioso al tener sus documentos fiscales organizados y listos para su declaración de impuestos. </li>
+            <li><span class="texto-negro">Profesionalismo:</span> Nuestros contadores son expertos en el campo fiscal y
+              están capacitados para maximizar las devoluciones y minimizar las posibilidades de auditoría.</li>
+            <li><span class="texto-negro">Seguridad y cumplimiento:</span> Nuestra plataforma de gestión de archivos
+              fiscales garantiza la seguridad y confidencialidad de los documentos del cliente, cumpliendo con todas las
+              regulaciones fiscales y de privacidad vigentes. </li>
+            <li><span class="texto-negro">Asesoramiento personalizado:</span> Nuestros contadores ofrecen un servicio
+              personalizado y están disponibles para responder preguntas y proporcionar asesoramiento fiscal en cualquier
+              momento del año, no solo durante la temporada de impuestos.</li>
+            <!-- Agrega más beneficios según sea necesario -->
+          </ul>
+        </div>
+      </div>
+  
 
   </div>
 
@@ -304,6 +331,14 @@
       offcanvas.show();
       // Ajusta la posición del offcanvas para que aparezca desde el contenedor de navegación
       document.getElementById('benefitsOffcanvas').style.top = document.querySelector('.navbar').offsetHeight + 'px';
+    }
+
+     // Función para abrir el offcanvas de contacto
+     function openBenefitsOffcanvas() {
+      var offcanvas = new bootstrap.Offcanvas(document.getElementById('contactosOffcanvas'));
+      offcanvas.show();
+      // Ajusta la posición del offcanvas para que aparezca desde el contenedor de navegación
+      document.getElementById('contactosOffcanvas').style.top = document.querySelector('.navbar').offsetHeight + 'px';
     }
   </script>
 
