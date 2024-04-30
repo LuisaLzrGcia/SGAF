@@ -96,7 +96,7 @@ if (session_status() !== 2)
                 </a>
             </div>
 
-            <div class="mx-2 d-flex justify-content-center align-items-center">
+            <div class="mx-2 d-flex justify-content-center align-items-center ">
                 <a class="nav-link d-flex justify-content-center align-items-center" href="http://"
                     onclick="bttnSelecionado(`Motor`)">
                     <div class="d-flex justify-content-center align-items-center">
@@ -113,35 +113,43 @@ if (session_status() !== 2)
                     </div>
                 </a>
             </div>
-        </div>
-    </div>
-    </div>
-    <div class="d-flex">
-        <h1 class="text-white">
-            <?php
-            echo $_SESSION['user']
-                ?>
-        </h1>
-        <div class="mx-2 d-flex justify-content-center align-items-center">
-            <a class="btn btn-info d-flex justify-content-center align-items-center" href="../utils/salir.php">
-                <div class="d-flex justify-content-center align-items-center">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                        class="bi bi-box-arrow-right" viewBox="0 0 16 16">
-                        <path fill-rule="evenodd" d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5
-                             0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 
-                             3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0z" />
-                        <path fill-rule="evenodd" d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5
-                             0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708z" />
-                    </svg>
-                </div>
-                <div class="ps-1">
-                    Salir
-                </div>
-            </a>
-        </div>
-    </div>
-</nav>
 
+            <div class="nav-item dropdown my-auto ">
+
+                <a class="nav-link dropdown-toggle ps-1" id="Rol" data-bs-toggle="dropdown" style="color:#FF0000;"
+                    href="#" onclick="bttnSelecionado(`rol`)">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                        class="bi bi-person-circle" viewBox="0 0 16 16">
+                        <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0" />
+                        <path fill-rule="evenodd"
+                            d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1" />
+                    </svg>
+                    <?php echo $_SESSION['rol']; ?>
+                </a>
+                <ul class="dropdown-menu mt-2 p-0 " style="font-size: 15;">
+                    <li class="text-center ">
+                        <!-- Clase para centrar horizontalmente -->
+                        <a class="dropdown-item" href="../utils/salir.php" style="text-align: left;  ">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                                class="bi bi-box-arrow-left" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd"
+                                    d="M6 12.5a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5h-8a.5.5 0 0 0-.5.5v2a.5.5 0 0 1-1 0v-2A1.5 1.5 0 0 1 6.5 2h8A1.5 1.5 0 0 1 16 3.5v9a1.5 1.5 0 0 1-1.5 1.5h-8A1.5 1.5 0 0 1 5 12.5v-2a.5.5 0 0 1 1 0z" />
+                                <path fill-rule="evenodd"
+                                    d="M.146 8.354a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L1.707 7.5H10.5a.5.5 0 0 1 0 1H1.707l2.147 2.146a.5.5 0 0 1-.708.708z" />
+                            </svg>
+                            Cerrar sesion</a>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+
+
+
+
+</nav>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script>
 // Función para agregar la clase 'active' al enlace que se hizo clic
 function bttnSelecionado(value) {
@@ -180,12 +188,3 @@ if (valorBtn === 'Usuarios') {
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
     integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous">
 </script>
-
-
-
-
-
-
-
-
-

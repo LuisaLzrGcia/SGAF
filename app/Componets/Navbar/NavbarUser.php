@@ -2,78 +2,254 @@
 if (session_status() !== 2)
     session_start();
 ?>
-
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <link rel="stylesheet" href="../../public/CSS/style.css" />
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
 
 <nav class="navbar navbar-expand-lg bg-body-tertiary px-5 fondoNav justify-content-between">
-    <div class="d-flex">
+    <div class="d-flex ">
         <div class="">
             <img class="logo-image rounded-circle" src="" alt="" srcset="../../public/images/logoF.png">
         </div>
-        <div class="mx-2 d-flex justify-content-center align-items-center">
-            <a class="nav-link d-flex justify-content-center align-items-center"
-                href="../Registrar/ResgistrarUsuario.php" onclick="bttnSelecionado(`Usuarios`)">
-                <div class="d-flex justify-content-center align-items-center">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                        class="bi bi-person-gear" viewBox="0 0 16 16" style="color: black;">
-                        <path
-                            d="M11 5a3 3 0 1 1-6 0 3 3 0 0 1 6 0M8 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4m.256 7a4.5 4.5 0 0 1-.229-1.004H3c.001-.246.154-.986.832-1.664C4.484 10.68 5.711 10 8 10q.39 0 .74.025c.226-.341.496-.65.804-.918Q8.844 9.002 8 9c-5 0-6 3-6 4s1 1 1 1zm3.63-4.54c.18-.613 1.048-.613 1.229 0l.043.148a.64.64 0 0 0 .921.382l.136-.074c.561-.306 1.175.308.87.869l-.075.136a.64.64 0 0 0 .382.92l.149.045c.612.18.612 1.048 0 1.229l-.15.043a.64.64 0 0 0-.38.921l.074.136c.305.561-.309 1.175-.87.87l-.136-.075a.64.64 0 0 0-.92.382l-.045.149c-.18.612-1.048.612-1.229 0l-.043-.15a.64.64 0 0 0-.921-.38l-.136.074c-.561.305-1.175-.309-.87-.87l.075-.136a.64.64 0 0 0-.382-.92l-.148-.045c-.613-.18-.613-1.048 0-1.229l.148-.043a.64.64 0 0 0 .382-.921l-.074-.136c-.306-.561.308-1.175.869-.87l.136.075a.64.64 0 0 0 .92-.382zM14 12.5a1.5 1.5 0 1 0-3 0 1.5 1.5 0 0 0 3 0" />
-                    </svg>
-                </div>
-                <div class="ps-1" id="btnNavegadorUsuarios">
-                    Inicio
-                </div>
-            </a>
-        </div>
+        <div class="d-flex mx-4">
+            <div class="mx-2 d-flex justify-content-center align-items-center">
+                <a class="nav-link d-flex justify-content-center align-items-center " href="../Main/Cliente.php"
+                    onclick="bttnSelecionado(`Inicio`)">
+                    <div class="d-flex justify-content-center align-items-center ">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class="bi bi-house-fill" viewBox="0 0 16 16">
+                            <path
+                                d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L8 2.207l6.646 6.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293z" />
+                            <path d="m8 3.293 6 6V13.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5V9.293z" />
+                        </svg>
+                    </div>
+                    <div class="ps-1" id="btnNavegadorInicio">
+                        Inicio
+                    </div>
+                </a>
+            </div>
 
-        <div class="mx-2 d-flex justify-content-center align-items-center">
-            <a class="nav-link d-flex justify-content-center align-items-center"
-                href="../Registrar/ResgistrarUsuario.php" onclick="bttnSelecionado(`Usuarios`)">
-                <div class="d-flex justify-content-center align-items-center">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                        class="bi bi-person-gear" viewBox="0 0 16 16" style="color: black;">
-                        <path
-                            d="M11 5a3 3 0 1 1-6 0 3 3 0 0 1 6 0M8 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4m.256 7a4.5 4.5 0 0 1-.229-1.004H3c.001-.246.154-.986.832-1.664C4.484 10.68 5.711 10 8 10q.39 0 .74.025c.226-.341.496-.65.804-.918Q8.844 9.002 8 9c-5 0-6 3-6 4s1 1 1 1zm3.63-4.54c.18-.613 1.048-.613 1.229 0l.043.148a.64.64 0 0 0 .921.382l.136-.074c.561-.306 1.175.308.87.869l-.075.136a.64.64 0 0 0 .382.92l.149.045c.612.18.612 1.048 0 1.229l-.15.043a.64.64 0 0 0-.38.921l.074.136c.305.561-.309 1.175-.87.87l-.136-.075a.64.64 0 0 0-.92.382l-.045.149c-.18.612-1.048.612-1.229 0l-.043-.15a.64.64 0 0 0-.921-.38l-.136.074c-.561.305-1.175-.309-.87-.87l.075-.136a.64.64 0 0 0-.382-.92l-.148-.045c-.613-.18-.613-1.048 0-1.229l.148-.043a.64.64 0 0 0 .382-.921l-.074-.136c-.306-.561.308-1.175.869-.87l.136.075a.64.64 0 0 0 .92-.382zM14 12.5a1.5 1.5 0 1 0-3 0 1.5 1.5 0 0 0 3 0" />
-                    </svg>
-                </div>
-                <div class="ps-1" id="btnNavegadorUsuarios">
-                    Usuarios
-                </div>
-            </a>
-        </div>
+            <div class="mx-2 d-flex justify-content-center align-items-center">
+                <a class="nav-link d-flex justify-content-center align-items-center" href="#"
+                    onclick="abrirModalFunciones(`Funciones`)">
+                    <div class="d-flex justify-content-center align-items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class="bi bi-megaphone" viewBox="0 0 16 16">
+                            <path
+                                d="M13 2.5a1.5 1.5 0 0 1 3 0v11a1.5 1.5 0 0 1-3 0v-.214c-2.162-1.241-4.49-1.843-6.912-2.083l.405 2.712A1 1 0 0 1 5.51 15.1h-.548a1 1 0 0 1-.916-.599l-1.85-3.49-.202-.003A2.014 2.014 0 0 1 0 9V7a2.02 2.02 0 0 1 1.992-2.013 75 75 0 0 0 2.483-.075c3.043-.154 6.148-.849 8.525-2.199zm1 0v11a.5.5 0 0 0 1 0v-11a.5.5 0 0 0-1 0m-1 1.35c-2.344 1.205-5.209 1.842-8 2.033v4.233q.27.015.537.036c2.568.189 5.093.744 7.463 1.993zm-9 6.215v-4.13a95 95 0 0 1-1.992.052A1.02 1.02 0 0 0 1 7v2c0 .55.448 1.002 1.006 1.009A61 61 0 0 1 4 10.065m-.657.975 1.609 3.037.01.024h.548l-.002-.014-.443-2.966a68 68 0 0 0-1.722-.082z" />
+                        </svg>
+                    </div>
+                    <div class="ps-1" id="btnNavegadorFunciones">
+                        Funciones
+                    </div>
+                </a>
+            </div>
 
+            <div class="mx-2 d-flex justify-content-center align-items-center">
+                <a class="nav-link d-flex justify-content-center align-items-center" href="../Main/Acerca.php"
+                    onclick="bttnSelecionado(`Acerca`)">
+                    <div class="d-flex justify-content-center align-items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class="bi bi-info-circle-fill" viewBox="0 0 16 16">
+                            <path
+                                d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16m.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2" />
+                        </svg>
+                    </div>
+                    <div class="ps-1" id="btnNavegadorAcerca">
+                        Acerca de
+                    </div>
+                </a>
+            </div>
 
+            <div class="mx-2 d-flex justify-content-center align-items-center">
+                <a class="nav-link d-flex justify-content-center align-items-center" href="#"
+                    onclick="abrirModalSoporte(`Soporte`)">
+                    <div class="d-flex justify-content-center align-items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class="bi bi-headset" viewBox="0 0 16 16">
+                            <path
+                                d="M8 1a5 5 0 0 0-5 5v1h1a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V6a6 6 0 1 1 12 0v6a2.5 2.5 0 0 1-2.5 2.5H9.366a1 1 0 0 1-.866.5h-1a1 1 0 1 1 0-2h1a1 1 0 0 1 .866.5H11.5A1.5 1.5 0 0 0 13 12h-1a1 1 0 0 1-1-1V8a1 1 0 0 1 1-1h1V6a5 5 0 0 0-5-5" />
+                        </svg>
+                    </div>
+                    <div class="ps-1" id="btnNavegadorSoporte">
+                        Soporte
+                    </div>
+                </a>
+            </div>
 
-    </div>
-    <div class="d-flex">
-        <h1 class="text-white">
-            <?php
-            echo $_SESSION['user']
-                ?>
-        </h1>
-        <div class="mx-2 d-flex justify-content-center align-items-center">
-            <a class="btn btn-info d-flex justify-content-center align-items-center" href="../utils/salir.php">
-                <div class="d-flex justify-content-center align-items-center">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                        class="bi bi-box-arrow-right" viewBox="0 0 16 16">
+            <div class="nav-item dropdown my-auto ">
+
+                <a class="nav-link dropdown-toggle ps-1" id="Rol" data-bs-toggle="dropdown" style="color:#FF0000;"
+                    href="#" onclick="bttnSelecionado(`rol`)">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                        class="bi bi-person-circle" viewBox="0 0 16 16">
+                        <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0" />
                         <path fill-rule="evenodd"
-                            d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0z" />
-                        <path fill-rule="evenodd"
-                            d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708z" />
+                            d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1" />
                     </svg>
+                    <?php echo $_SESSION['rol']; ?>
+                </a>
+                <ul class="dropdown-menu mt-2 p-0 " style="font-size: 15;">
+                    <li class="text-center ">
+                        <!-- Clase para centrar horizontalmente -->
+                        <a class="dropdown-item" href="../utils/salir.php" style="text-align: left;  ">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                                class="bi bi-box-arrow-left" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd"
+                                    d="M6 12.5a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5h-8a.5.5 0 0 0-.5.5v2a.5.5 0 0 1-1 0v-2A1.5 1.5 0 0 1 6.5 2h8A1.5 1.5 0 0 1 16 3.5v9a1.5 1.5 0 0 1-1.5 1.5h-8A1.5 1.5 0 0 1 5 12.5v-2a.5.5 0 0 1 1 0z" />
+                                <path fill-rule="evenodd"
+                                    d="M.146 8.354a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L1.707 7.5H10.5a.5.5 0 0 1 0 1H1.707l2.147 2.146a.5.5 0 0 1-.708.708z" />
+                            </svg>
+                            Cerrar sesion</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- Modal de Funciones -->
+            <div class="modal fade" id="funcionesModal" tabindex="-1" aria-labelledby="funcionesModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="funcionesModalLabel" style="text-align: center;">Informacion de
+                                funciones del sistema</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body border" style="text-align: justify;">
+                            <p>En SGAF, entendemos la importancia de tener una gestión financiera eficiente para el
+                                éxito de tu empresa, por eso que ofrecemos soluciones
+                                integrales diseñadas para simplificar tus procesos contables y optimizar tus operaciones
+                                financieras.
+                            </p>
+
+                            <!-- Nav tabs -->
+                            <ul class="nav nav-tabs">
+                                <li class="nav-item">
+                                    <a class="nav-link active" data-bs-toggle="tab" href="#home">Organiza tus
+                                        documentos</a>
+                                </li>
+                                <p></p>
+                                <li class="nav-item">
+                                    <a class="nav-link" data-bs-toggle="tab" href="#menu1">Sube tus documentos</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" data-bs-toggle="tab" href="#menu2">Descarga documentos </a>
+                                </li>
+                            </ul>
+
+                            <!-- Tab panes -->
+                            <div class="tab-content">
+                                <div class="tab-pane container active" id="home">Nuestro sistema te permite organizar
+                                    tus documentos de manera inteligente y eficiente.
+                                    Clasifica tus archivos en categorías específicas como: facturas, recibos, estados de
+                                    cuenta y más, para una gestión ordenada y sin complicaciones.
+                                    <li>Ingresa a la carpeta donde subiras tus documentos para una mejor organizacion
+                                    </li>
+                                    <li>En caso de que no veas la carpeta correspondiente puedes crear una nueva</li>
+                                    <li>Supervisa que tus archivos esten organizados correctamente.</li>
+                                </div>
+                                <div class="tab-pane container fade" id="menu1">Con nuestra plataforma, subir tus
+                                    documentos es un proceso rápido y sencillo. Simplemente arrastra y suelta tus
+                                    archivos en el área designada o selecciona los
+                                    documentos desde tu dispositivo, y nosotros nos encargaremos del resto.
+                                <li>Ahora con un solo clic puedes subir tus archivos para que trabajemos por ti.</li>
+                                <li>Si subes un archivo por error, no te preocupes ya que podras eliminarlo si asi lo requieres.</li>
+                                <li>Si no tienes los permisos, contacta a soporte.</li>
+                                </div>
+                                <div class="tab-pane container fade" id="menu2">Con nuestra plataforma, descargar tus
+                                    documentos es rápido y sencillo solo encuentra el archivo que necesitas en nuestra
+                                    interfaz intuitiva y descárgalo con un solo clic.
+                                <li>Busca el archivo y decarga el archivo que tengas disponible.
+                                </li>
+                                <li>En caso de no contar con los permisos, contacta a soporte.
+                                </li>
+                                </div>
+                            </div>
+
+
+
+                        </div>
+
+                    </div>
                 </div>
-                <div class="ps-1">
-                    Salir
+            </div>
+
+            <!-- Modal de Soporte -->
+            <div class="modal fade" id="SoporteModal" tabindex="-1" aria-labelledby="SoporteModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="SoporteModalLabel" style="text-align: center;">Informacion de
+                                funciones del sistema</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body border" style="text-align: justify;">
+                            <p>FORMULARIO PARA EL SOPORTE
+                            </p>
+
+
+
+
+
+
+                        </div>
+
+                    </div>
                 </div>
-            </a>
+            </div>
+
+
+
+
         </div>
     </div>
+
 </nav>
-
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
     integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous">
 </script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
     integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous">
+</script>
+<script>
+function abrirModalFunciones() {
+    $('#funcionesModal').modal('show'); // Esto abre el modal
+}
+
+function abrirModalSoporte() {
+    $('#SoporteModal').modal('show'); // Esto abre el modal
+}
+</script>
+
+<script>
+// Función para agregar la clase 'active' al enlace que se hizo clic
+function bttnSelecionado(value) {
+    sessionStorage.setItem("bttnSelecionado", value)
+}
+
+let valorBtn = sessionStorage.getItem('bttnSelecionado');
+let btnSelecionado = "";
+// Iterar sobre la lista de elementos obtenidos
+if (valorBtn === 'Funciones') {
+    btnSelecionado = document.getElementById("btnNavegadorFunciones");
+    btnSelecionado.classList.remove('fw-bold');
+    btnSelecionado.classList.add('text-white');
+} else if (valorBtn === 'Inicio') {
+    btnSelecionado = document.getElementById("btnNavegadorInicio");
+    btnSelecionado.classList.remove('fw-bold');
+    btnSelecionado.classList.add('text-white');
+} else if (valorBtn === 'Acerca') {
+    btnSelecionado = document.getElementById("btnNavegadorAcerca");
+    btnSelecionado.classList.remove('fw-bold');
+    btnSelecionado.classList.add('text-white');
+} else if (valorBtn === 'Soporte') {
+    btnSelecionado = document.getElementById("btnNavegadorSoporte");
+    btnSelecionado.classList.remove('fw-bold');
+    btnSelecionado.classList.add('text-white');
+} else if (valorBtn === 'Motor') {
+    btnSelecionado = document.getElementById("btnNavegadorMotor");
+    btnSelecionado.classList.remove('fw-bold');
+    btnSelecionado.classList.add('text-white');
+}
 </script>

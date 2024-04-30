@@ -1,6 +1,8 @@
 <?php
 include_once ("../Conexion.php");
 
+
+
 if (isset($_POST['user']) && isset($_POST['password'])) {
     // Obtener usuario y contraseña del formulario
     $usuario = ($_POST['user']);
@@ -17,9 +19,16 @@ if (isset($_POST['user']) && isset($_POST['password'])) {
 
     // Verificar si el inicio de sesión fue exitoso
     if ($login_result) {
-        // Redireccionar a inicio.php
-        header("Location: ../Main/Main.php");
-        exit; // Salir del script para evitar ejecución adicional
+        
+        if ($_SESSION['rol'] == "admin") {
+            header("Location: ../Main/Main.php");
+            exit; // Salir del script para evitar ejecución adicional
+        }else{
+            header("Location: ../Main/Cliente.php");
+            exit; // Salir del script para evitar ejecución adicional
+        }
+        
+        
     } else {
         // Si el inicio de sesión falló, devolver un mensaje de error en formato JSON
         $response = array("success" => false, "error" => "Usuario o contraseña incorrectos.");

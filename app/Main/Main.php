@@ -26,7 +26,7 @@ if ($_SESSION['user']) {
         ?>
         <div class="mx-5">
             <h1>
-                Bievenido <?php echo $_SESSION['rol']?>
+                Bievenido <?php echo $_SESSION['user']?>
             </h1>
             <div class="container-fluid w-100">
                 <div class="row">

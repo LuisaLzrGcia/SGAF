@@ -22,8 +22,8 @@ if ($_SESSION['user']) {
                 ?>
     <div class="container-fluid w-100 ">
         <div class="mx-5 mb-2">
-            <h1>
-                Bievenido <?php echo $_SESSION['rol']?>
+            <h1 style="color:white">
+                Bievenido <?php echo $_SESSION['user']?>
             </h1>
         </div>
 
@@ -68,6 +68,7 @@ if ($_SESSION['user']) {
         </div>
 
 
+       
 
 
 

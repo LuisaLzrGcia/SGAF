@@ -56,6 +56,11 @@ a:hover {
     background-size: cover;
 }
 
+.bg-cliente{
+  background-image: url("../images/Fondonew.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 
 
 .fondoNav{
@@ -85,3 +90,8 @@ a:hover {
   
 }
 
+.texto-blanco {
+  color: #ffffff; /* Un tono blanco */
+  font-weight: bold; /* Opcional: para hacer el texto más destacado */
+  
+}
