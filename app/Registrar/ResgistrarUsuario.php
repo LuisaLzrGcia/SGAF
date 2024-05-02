@@ -28,7 +28,8 @@ if ($_SESSION['user'] && $_SESSION['rol'] == "admin") {
 </head>
 
 <body
-    style="background-image: url('../../public/images/FondoSGAF.png'); background-size: cover; background-position: center; background-repeat: no-repeat; margin: 0; padding: 0; height: 100vh;">
+    style="background-image: url('../../public/images/FondoSGAF.png'); 
+    background-size: cover; background-position: center; background-repeat: no-repeat; margin: 0; padding: 0; height: 100vh;">
     <?php
         include_once "../Componets/Navbar/NavbarAdmin.php";
         ?>

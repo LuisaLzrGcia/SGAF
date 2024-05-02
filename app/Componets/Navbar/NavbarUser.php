@@ -1,7 +1,20 @@
 <?php
 if (session_status() !== 2)
     session_start();
+
+    include_once("../utils/ConsultadeNombre.php");
+    include_once("../utils/Generar_folio.php");
+    
 ?>
+<?php 
+  if (isset($_SESSION['folio'])) {
+    echo $_SESSION['folio'];
+} else {
+    echo "La variable de sesión 'nombre' no está definida.";
+}
+?>
+
+
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <link rel="stylesheet" href="../../public/CSS/style.css" />
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
@@ -11,6 +24,9 @@ if (session_status() !== 2)
         <div class="">
             <img class="logo-image rounded-circle" src="" alt="" srcset="../../public/images/logoF.png">
         </div>
+
+
+
         <div class="d-flex mx-4">
             <div class="mx-2 d-flex justify-content-center align-items-center">
                 <a class="nav-link d-flex justify-content-center align-items-center " href="../Main/Cliente.php"
@@ -151,17 +167,19 @@ if (session_status() !== 2)
                                     documentos es un proceso rápido y sencillo. Simplemente arrastra y suelta tus
                                     archivos en el área designada o selecciona los
                                     documentos desde tu dispositivo, y nosotros nos encargaremos del resto.
-                                <li>Ahora con un solo clic puedes subir tus archivos para que trabajemos por ti.</li>
-                                <li>Si subes un archivo por error, no te preocupes ya que podras eliminarlo si asi lo requieres.</li>
-                                <li>Si no tienes los permisos, contacta a soporte.</li>
+                                    <li>Ahora con un solo clic puedes subir tus archivos para que trabajemos por ti.
+                                    </li>
+                                    <li>Si subes un archivo por error, no te preocupes ya que podras eliminarlo si asi
+                                        lo requieres.</li>
+                                    <li>Si no tienes los permisos, contacta a soporte.</li>
                                 </div>
                                 <div class="tab-pane container fade" id="menu2">Con nuestra plataforma, descargar tus
                                     documentos es rápido y sencillo solo encuentra el archivo que necesitas en nuestra
                                     interfaz intuitiva y descárgalo con un solo clic.
-                                <li>Busca el archivo y decarga el archivo que tengas disponible.
-                                </li>
-                                <li>En caso de no contar con los permisos, contacta a soporte.
-                                </li>
+                                    <li>Busca el archivo y decarga el archivo que tengas disponible.
+                                    </li>
+                                    <li>En caso de no contar con los permisos, contacta a soporte.
+                                    </li>
                                 </div>
                             </div>
 
@@ -184,25 +202,94 @@ if (session_status() !== 2)
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body border" style="text-align: justify;">
-                            <p>FORMULARIO PARA EL SOPORTE
-                            </p>
+                            <!-- Aquí va el formulario de inicio de sesión -->
+                            <form method="post" action="../utils/Registrar_soporte.php ">
+                                <div class="container border">
+                                    <div class="row">
+                                        <div class="col-md-6 offset-md-3 ">
+                                            <div class="signup-form">
+                                                <form action="" class="p-4 bg-light shadow">
+
+                                                    <div class="row">
+                                                        <div class="mb-2 col-md-12">
+
+                                                            <label>Nombre: </label>
+                                                            <input type="text" id="nombre_completo"
+                                                                name="nombre_completo"
+                                                                value="<?php echo isset($_SESSION['nombre_completo']) ? $_SESSION['nombre_completo'] : ''; ?>"
+                                                                readonly>
+                                                        </div>
 
 
+
+                                                        <div class="mb-2 col-md-12">
+                                                            <label>Empresa<span>*</span></label>
+                                                            <input type="text" id="empresa" name="empresa"
+                                                                value="<?php echo isset($_SESSION['empresa']) ? $_SESSION['empresa'] : ''; ?>"
+                                                                readonly>
+                                                        </div>
+
+                                                        <div class="mb-2 col-md-12">
+                                                            <label>RFC<span>*</span></label>
+                                                            <input type="text" id="rfc" name="rfc"
+                                                                value="<?php echo isset($_SESSION['rfc']) ? $_SESSION['rfc'] : ''; ?>"
+                                                                readonly>
+                                                        </div>
+
+                                                        <div class="mb-2 col-md-12">
+                                                            <label>Tipo de problema: <span>*</span></label>
+                                                            <select class="form-select" name="etiqueta"
+                                                                aria-label="Default select example" required>
+                                                                <option value="">Seleccionar</option>
+                                                                <option value="Subir archivos">Subir archivo</option>
+                                                                <option value="Descargar archivos">Descargar Archivo
+                                                                </option>
+                                                                <option value="Carpetas">Carpetas</option>
+                                                            </select>
+                                                        </div>
+
+
+                                                        <div class="mb-2 col-md-12">
+                                                            <label>Detalles del problema que
+                                                                presentas:<span>*</span></label>
+                                                            <textarea name="mensaje" class="form-control"
+                                                                required></textarea>
+                                                        </div>
+
+                                                        <div class="mb-2 col-md-12">
+                                                            <label>Folio<span>*</span></label>
+                                                            <input type="text" id="folio" name="folio"
+                                                                value="<?php echo isset($_SESSION['folio']) ? $_SESSION['folio'] : ''; ?>"
+                                                                readonly>
+                                                        </div>
+                                                        <div class="mb-2 col-md-12">
+                                                            <label>Fecha de reporte<span>*</span></label>
+                                                            <input type="date" name="FechaReporte" class="form-control"
+                                                                required>
+                                                        </div>
+                                                        <div class="col-md-12">
+                                                            <button class="btn btn-primary float-end">Registrar</button>
+                                                        </div>
+                                                    </div>
+                                                </form>
+
+
+
+
+
+
+
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
 
 
 
 
                         </div>
-
                     </div>
-                </div>
-            </div>
-
-
-
-
-        </div>
-    </div>
 
 </nav>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
@@ -252,4 +339,54 @@ if (valorBtn === 'Funciones') {
     btnSelecionado.classList.remove('fw-bold');
     btnSelecionado.classList.add('text-white');
 }
+</script>
+<script>
+document.getElementById("myForm").addEventListener("submit", function(event) {
+    // Obtener el valor seleccionado del tipo de problema
+    var tipoProblema = document.getElementById("etiqueta").value;
+
+    // Validar si se ha seleccionado una opción válida
+    if (tipoProblema === "") {
+        // Evitar el envío del formulario
+        event.preventDefault();
+
+        // Mostrar un mensaje de error
+        alert("Por favor selecciona un tipo de problema válido.");
+    }
+});
+</script>
+
+<script>
+$(document).ready(function() {
+    $('form').submit(function(e) {
+        e.preventDefault(); // Evitar el envío del formulario por defecto
+
+        // Obtener los datos del formulario
+        var formData = $(this).serialize();
+
+        // Enviar los datos del formulario mediante AJAX
+        $.ajax({
+            type: 'POST',
+            url: '../utils/Registrar_soporte.php', // Ruta al archivo PHP que procesa el formulario
+            data: formData,
+            dataType: 'json', // Especificar que esperamos una respuesta JSON
+            success: function(response) {
+                // Mostrar alerta basado en la respuesta del servidor
+                if (response.registro_exitoso) {
+                    // Alerta de registro exitoso
+                    alert("¡Registro exitoso!");
+                    // Redirigir a la página inicial después de un breve retraso
+                    setTimeout(function() {
+                        window.location.href = '../Main/cliente.php';
+                    }, 200); // Redirigir después de 2 segundos (2000 milisegundos)
+                } else {
+                    alert("Error al registrar: " + response.error);
+                }
+            },
+            error: function(xhr, status, error) {
+                alert("Error en la solicitud AJAX: " + error);
+            }
+        });
+    });
+});
 </script>
