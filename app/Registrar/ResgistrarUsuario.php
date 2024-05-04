@@ -1,7 +1,7 @@
 <?php
 if (session_status() !== 2)
     session_start();
-if ($_SESSION['user'] && $_SESSION['rol'] == "admin") {
+if ($_SESSION['user'] && $_SESSION['rol'] == "admin" || $_SESSION['rol'] == "master") {
     ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -31,7 +31,10 @@ if ($_SESSION['user'] && $_SESSION['rol'] == "admin") {
     style="background-image: url('../../public/images/FondoSGAF.png'); 
     background-size: cover; background-position: center; background-repeat: no-repeat; margin: 0; padding: 0; height: 100vh;">
     <?php
+    if ($_SESSION['rol'] == "admin") {
         include_once "../Componets/Navbar/NavbarAdmin.php";
+    }else 
+    include_once "../Componets/Navbar/NavbarMaster.php"
         ?>
     <div class="container-fluid border  ; ">
 

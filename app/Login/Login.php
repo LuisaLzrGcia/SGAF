@@ -23,7 +23,11 @@ if (isset($_POST['user']) && isset($_POST['password'])) {
         if ($_SESSION['rol'] == "admin") {
             header("Location: ../Main/Main.php");
             exit; // Salir del script para evitar ejecución adicional
-        }else{
+        }else if($_SESSION['rol']=="master"){
+            header("Location: ../Main/Master.php");
+            exit;
+        }
+        else {
             header("Location: ../Main/Cliente.php");
             exit; // Salir del script para evitar ejecución adicional
         }
