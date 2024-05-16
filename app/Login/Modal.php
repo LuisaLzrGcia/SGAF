@@ -26,7 +26,7 @@
                 </div>
                 <div class="modal-body">
                     <!-- Aquí va el formulario de inicio de sesión -->
-                    
+                    hola
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
