@@ -28,7 +28,4 @@ if ($conexion->query($sql) === TRUE) {
 // Cerrar la conexión
 $conexion->close();
 
-// Enviar la respuesta como JSON
-header('Content-Type: application/json');
-echo json_encode($response);
 ?>

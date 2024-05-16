@@ -23,6 +23,9 @@ class Usuarios
             $_SESSION['rol'] = $datosUsuario['rol'];
             $_SESSION['url'] = $datosUsuario['url'] . "\\";
             $_SESSION['actualDireccion'] = $datosUsuario['url']. "\\";
+            $_SESSION['subir'] = $datosUsuario['subir'];
+            $_SESSION['eliminar'] = $datosUsuario['eliminar'];
+            $_SESSION['descargar'] = $datosUsuario['descargar'];
             $_SESSION['user'] = true;
             $_SESSION['btnRegresar'] = false;
             return true;
