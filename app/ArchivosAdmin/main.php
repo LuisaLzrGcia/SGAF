@@ -1,6 +1,7 @@
 <?php
-if (session_status() !== 2)
+if (session_status() !== 2) {
     session_start();
+}
 if ($_SESSION['user']) {
     ?>
 
@@ -16,41 +17,59 @@ if ($_SESSION['user']) {
     </head>
 
     <body class="bg-general">
-
         <?php
-        include_once "../Componets/Navbar/NavbarUser.php"
-            ?>
-        <div class="container-fluid w-100 ">
-            <div class="mt-5 mx-5 mb-3">
-                <h1 style="color:white">
-                    Bievenido
-                    <?php echo $_SESSION['nombre'] . " " . $_SESSION['apellido_pa'] . " " . $_SESSION['apellido_ma'] ?>
-                </h1>
-            </div>
-        </div>
-        <div class="bg-body-secondary p-3 m-5">
-            <h3>Mis archivos</h3>
+        if ($_SESSION['rol'] == "admin") {
+            include_once "../Componets/Navbar/NavbarAdmin.php";
+        } else {
+            include_once "../Componets/Navbar/NavbarUser.php";
+
+        }
+        ?>
+        <div class="bg-body-secondary m-5 p-3">
             <div class="d-flex align-items-center">
-                <div>
+                <?php if ($_SESSION['btnRegresar']): ?>
+                    <div class="me-2">
+                        <form action="./regresarRaiz.php" method="post">
+                            <button type="submit" class="btn btn-primary p-1 my-1">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                    class="bi bi-arrow-90deg-up" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd"
+                                        d="M4.854 1.146a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L4 2.707V12.5A2.5 2.5 0 0 0 6.5 15h8a.5.5 0 0 0 0-1h-8A1.5 1.5 0 0 1 5 12.5V2.707l3.146 3.147a.5.5 0 1 0 .708-.708z" />
+                                </svg>
+                            </button>
+                        </form>
+                    </div>
+                <?php endif; ?>
+                <div class="me-2">
                     <?php
-                    echo ($_SESSION['url']);
+                    if ($_SESSION['btnRegresar'] != true) {
+                        ?>
+                        <form action="crearCarpeta.php" method="post">
+                            <input type="text" name="nombreCarpeta" placeholder="Nombre de la carpeta" required>
+                            <button type="submit" class="btn btn-secondary p-1 my-1">Crear Carpeta</button>
+                        </form>
+                        <?php
+                    }
                     ?>
-                    <form action="../ArchivosAdmin/subirArchivoCliente.php" method="post" enctype="multipart/form-data">
-                        <input type="file" name="archivoC" id="archivoC">
+                </div>
+                <div>
+                    <form action="subirArchivo.php" method="post" enctype="multipart/form-data">
+                        <input type="file" name="archivo" id="archivo">
                         <button type="submit" class="btn btn-secondary p-1 my-1">Subir Archivo</button>
                     </form>
                 </div>
             </div>
             <?php
-            $files = scandir($_SESSION['url']);
+            $files = scandir($_SESSION['actualDireccion']);
             if (count($files) <= 2) { // 2 para contar "." y ".."
                 echo "<p class='m-3'>No hay archivos disponibles.</p>";
             } else {
                 foreach ($files as $file):
                     if ($file != "." && $file != ".."): ?>
                         <div class="direccionFile">
-                            <a class="nombreFile w-100 ms-3" href="<?php echo $_SESSION['url'] . "/" . $file; ?>" target="_blank">
-                                <?php if (is_dir($_SESSION['url'] . "/" . $file)): ?>
+                            <a class="nombreFile w-100 ms-3" href="<?php echo $_SESSION['actualDireccion'] . "/" . $file; ?>"
+                                target="_blank">
+                                <?php if (is_dir($_SESSION['actualDireccion'] . "/" . $file)): ?>
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-folder"
                                         viewBox="0 0 16 16">
                                         <path
@@ -67,13 +86,16 @@ if ($_SESSION['user']) {
                                 <?php endif; ?>
                                 <?php echo $file; ?>
                             </a>
-                            <?php if (!is_dir($_SESSION['url'] . $file)): ?>
+                            <?php if (!is_dir($_SESSION['actualDireccion'] . $file)): ?>
                                 <form action="./descargarArchivo.php?file=<?php echo $file; ?>" method="post">
                                     <button class="btn-files btn-descargar p-1 my-1 w-100" type="submit">Descargar</button>
                                 </form>
                             <?php else: ?>
                                 <form action="./irCarpeta.php?file=<?php echo $file; ?>" method="post">
                                     <button class="btn-files btn-abrir p-1 my-1 w-100" type="submit">Abrir</button>
+                                </form>
+                                <form action="./renombrarCarpeta.php" method="post">
+                                    <button class="btn-files btn-renombrar p-1 my-1 w-100" type="submit">Renombrar</button>
                                 </form>
                             <?php endif; ?>
                             <form action="./eliminarCarpeta.php?file=<?php echo $file; ?>" method="post">
@@ -86,12 +108,11 @@ if ($_SESSION['user']) {
             ?>
 
         </div>
-        </div>
+
     </body>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
-        </script>
-
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
 
     </html>
 

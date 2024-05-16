@@ -3,9 +3,9 @@ include_once ("../Conexion.php");
 
 
 
-if (isset($_POST['user']) && isset($_POST['password'])) {
+if (isset($_POST['rfc']) && isset($_POST['password'])) {
     // Obtener usuario y contraseña del formulario
-    $usuario = ($_POST['user']);
+    $rfc = ($_POST['rfc']);
     $password = ($_POST['password']);
 
     // Incluir el archivo de la clase Usuarios
@@ -15,12 +15,13 @@ if (isset($_POST['user']) && isset($_POST['password'])) {
     $Usuarios = new Usuarios();
 
     // Intentar iniciar sesión
-    $login_result = $Usuarios->loginUsuarios($usuario, $password);
+    $login_result = $Usuarios->loginUsuarios($rfc, $password);
 
     // Verificar si el inicio de sesión fue exitoso
     if ($login_result) {
         
         if ($_SESSION['rol'] == "admin") {
+            echo $login_result;
             header("Location: ../Main/Main.php");
             exit; // Salir del script para evitar ejecución adicional
         }else if($_SESSION['rol']=="master"){

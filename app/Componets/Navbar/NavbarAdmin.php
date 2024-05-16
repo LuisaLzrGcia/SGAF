@@ -35,7 +35,7 @@ if (session_status() !== 2)
             </div>
             <div class="mx-2 d-flex justify-content-center align-items-center">
                 <a class="nav-link d-flex justify-content-center align-items-center"
-                    href="../Registrar/ResgistrarUsuario.php" onclick="bttnSelecionado(`Usuarios`)">
+                    href="../Registrar/TablaUsuarios.php" onclick="bttnSelecionado(`Usuarios`)">
                     <div class="d-flex justify-content-center align-items-center">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                             class="bi bi-person-gear" viewBox="0 0 16 16" style="color: black;">
@@ -59,7 +59,7 @@ if (session_status() !== 2)
             </div>
             <div class="mx-2 d-flex justify-content-center align-items-center">
                 <a class="nav-link d-flex justify-content-center align-items-center"
-                    href="../Registrar/ResgistrarUsuario.php" onclick="bttnSelecionado(`Administrar`)">
+                    href="../ArchivosAdmin/main.php" onclick="bttnSelecionado(`Administrar`)">
                     <div class="d-flex justify-content-center align-items-center">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                             class="bi bi-folder" viewBox="0 0 16 16" style="color: black;">
@@ -77,7 +77,7 @@ if (session_status() !== 2)
             </div>
 
             <div class="mx-2 d-flex justify-content-center align-items-center">
-                <a class="nav-link d-flex justify-content-center align-items-center" href="http://"
+                <a class="nav-link d-flex justify-content-center align-items-center" href="../PermisosAdmin/main.php"
                     onclick="bttnSelecionado(`Permisos`)">
                     <div class="d-flex justify-content-center align-items-center">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
@@ -97,7 +97,7 @@ if (session_status() !== 2)
             </div>
 
             <div class="mx-2 d-flex justify-content-center align-items-center ">
-                <a class="nav-link d-flex justify-content-center align-items-center" href="http://"
+                <a class="nav-link d-flex justify-content-center align-items-center" href="../Busqueda/main.php"
                     onclick="bttnSelecionado(`Motor`)">
                     <div class="d-flex justify-content-center align-items-center">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"

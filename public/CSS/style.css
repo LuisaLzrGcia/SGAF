@@ -1,32 +1,37 @@
 /* Resetear estilos para una experiencia más consistente en diferentes navegadores */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 /* Estilos básicos para el cuerpo de la página */
 body {
-    font-family: Arial, sans-serif; /* Tipo de fuente predeterminado */
-    font-size: 16px; /* Tamaño de fuente predeterminado */
-    line-height: 1.5; /* Espaciado entre líneas */
-    background-color: #f0f0f0; /* Color de fondo predeterminado */
-    color: #333; /* Color de texto predeterminado */
+  font-family: Arial, sans-serif; /* Tipo de fuente predeterminado */
+  font-size: 16px; /* Tamaño de fuente predeterminado */
+  line-height: 1.5; /* Espaciado entre líneas */
+  background-color: #f0f0f0; /* Color de fondo predeterminado */
+  color: #333; /* Color de texto predeterminado */
 }
 
 /* Estilos para los elementos principales de encabezado */
-h1, h2, h3, h4, h5, h6 {
-    margin-bottom: 10px; /* Espaciado inferior */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-bottom: 10px; /* Espaciado inferior */
 }
 
 /* Estilos básicos para los enlaces */
 a {
-    color: #007bff; /* Color de enlace */
-    text-decoration: none !important; /* Quitar subrayado predeterminado */
+  color: #007bff; /* Color de enlace */
+  text-decoration: none !important; /* Quitar subrayado predeterminado */
 }
 
 a:hover {
-    text-decoration: none !important;/* Subrayado al pasar el ratón */
+  text-decoration: none !important; /* Subrayado al pasar el ratón */
 }
 
 .divider:after,
@@ -45,53 +50,110 @@ a:hover {
   }
 }
 
-.logo-image{
-    width: 5vw;
-    
+.logo-image {
+  width: 5vw;
 }
 
-.bg-general{
-    background-image: url("../images/Fondonew.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-
-.bg-cliente{
+.bg-general {
   background-image: url("../images/Fondonew.jpg");
   background-repeat: no-repeat;
   background-size: cover;
 }
 
-
-.fondoNav{
-  background-image: url('../images/FondoNav.jpg'); /* Cambia 'ruta/a/imagen.jpg' por la ruta de tu imagen */
-  background-size: cover; /* Esto ajustará la imagen para que cubra todo el fondo del nav */
-  background-position: center; /* Esto centrará la imagen en el fondo del nav */
-  /* Puedes añadir más estilos según sea necesario */ 
+.bg-cliente {
+  background-image: url("../images/Fondonew.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
-.title-white{
-  color: white;     
+.fondoNav {
+  background-image: url("../images/FondoNav.jpg"); /* Cambia 'ruta/a/imagen.jpg' por la ruta de tu imagen */
+  background-size: cover; /* Esto ajustará la imagen para que cubra todo el fondo del nav */
+  background-position: center; /* Esto centrará la imagen en el fondo del nav */
+  /* Puedes añadir más estilos según sea necesario */
+}
+
+.title-white {
+  color: white;
 }
 
 .title-gradient {
- 
-  background: linear-gradient(to right, #ff6b6b, #ffc75f); /* Definir el degradado */
+  background: linear-gradient(
+    to right,
+    #ff6b6b,
+    #ffc75f
+  ); /* Definir el degradado */
   -webkit-background-clip: text; /* Establecer el recorte de fondo como texto */
   background-clip: text; /* Establecer el recorte de fondo como texto para navegadores que no requieren el prefijo -webkit- */
   color: white; /* Establecer el color del texto */
-  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000000; /* Agregar un contorno negro al texto */
-
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
+    1px 1px 0 #000000; /* Agregar un contorno negro al texto */
 }
 
 .texto-negro {
   color: #000000; /* Un tono más oscuro de negro */
   font-weight: bold; /* Opcional: para hacer el texto más destacado */
-  
 }
 
 .texto-blanco {
   color: #ffffff; /* Un tono blanco */
   font-weight: bold; /* Opcional: para hacer el texto más destacado */
-  
+}
+
+.bg-espejo1 {
+  background: rgb(6, 74, 93) !important;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.direccionFile {
+  margin-top: 3px;
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  grid-gap: 10px;
+  grid-row: auto;
+  justify-content: center; /* Centrar horizontalmente */
+  align-items: center; /* Centrar verticalmente */
+}
+
+.direccionFile:hover {
+  background-color: #a7cacc;
+}
+
+.nombreFile{
+  grid-column-start: 1 !important;
+  grid-column-end: 6 !important;
+  grid-row: 1 !important;
+  background: transparent;
+  border: none;
+  width: 100%;
+  text-align: left;
+}
+
+.btn-abrir{
+  background-color: #2980B9 !important;
+}
+
+.btn-descargar{
+  background-color: #138D75 !important;
+}
+
+.btn-eliminar{
+  background-color: #C0392B !important;
+}
+
+.btn-renombrar{
+  background-color: #D68910 !important;
+}
+
+.btn-admin{
+  background-color: #B3B6B7 !important;
+}
+
+.btn-files{
+  border: none;
+}
+
+.btn-files:hover {
+  filter: brightness(85%);
 }

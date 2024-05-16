@@ -2,9 +2,9 @@
 if (session_status() !== 2)
     session_start();
 
-    include_once("../utils/ConsultadeNombre.php");
-    include_once("../utils/Generar_folio.php");
-    
+include_once ("../utils/ConsultadeNombre.php");
+//include_once("../utils/Generar_folio.php");
+
 ?>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -213,7 +213,6 @@ if (session_status() !== 2)
                                         <div class="col-md-6 offset-md-3 ">
                                             <div class="signup-form">
                                                 <form action="" class="p-4 bg-light shadow">
-
                                                     <div class="row">
                                                         <div class="mb-2 col-md-12">
 
@@ -223,9 +222,6 @@ if (session_status() !== 2)
                                                                 value="<?php echo isset($_SESSION['nombre_completo']) ? $_SESSION['nombre_completo'] : ''; ?>"
                                                                 readonly>
                                                         </div>
-
-
-
                                                         <div class="mb-2 col-md-12">
                                                             <label>Empresa<span>*</span></label>
                                                             <input type="text" id="empresa" name="empresa"
@@ -276,121 +272,110 @@ if (session_status() !== 2)
                                                         </div>
                                                     </div>
                                                 </form>
-
-
-
-
-
-
-
                                             </div>
-
                                         </div>
                                     </div>
                                 </div>
-
-
-
-
                         </div>
                     </div>
-
 </nav>
+
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
     integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous">
-</script>
+    </script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
     integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous">
-</script>
+    </script>
 <script>
-function abrirModalFunciones() {
-    $('#funcionesModal').modal('show'); // Esto abre el modal
-}
-
-function abrirModalSoporte() {
-    $('#SoporteModal').modal('show'); // Esto abre el modal
-}
-</script>
-
-<script>
-// Función para agregar la clase 'active' al enlace que se hizo clic
-function bttnSelecionado(value) {
-    sessionStorage.setItem("bttnSelecionado", value)
-}
-
-let valorBtn = sessionStorage.getItem('bttnSelecionado');
-let btnSelecionado = "";
-// Iterar sobre la lista de elementos obtenidos
-if (valorBtn === 'Funciones') {
-    btnSelecionado = document.getElementById("btnNavegadorFunciones");
-    btnSelecionado.classList.remove('fw-bold');
-    btnSelecionado.classList.add('text-white');
-} else if (valorBtn === 'Inicio') {
-    btnSelecionado = document.getElementById("btnNavegadorInicio");
-    btnSelecionado.classList.remove('fw-bold');
-    btnSelecionado.classList.add('text-white');
-} else if (valorBtn === 'Acerca') {
-    btnSelecionado = document.getElementById("btnNavegadorAcerca");
-    btnSelecionado.classList.remove('fw-bold');
-    btnSelecionado.classList.add('text-white');
-} else if (valorBtn === 'Soporte') {
-    btnSelecionado = document.getElementById("btnNavegadorSoporte");
-    btnSelecionado.classList.remove('fw-bold');
-    btnSelecionado.classList.add('text-white');
-} else if (valorBtn === 'Motor') {
-    btnSelecionado = document.getElementById("btnNavegadorMotor");
-    btnSelecionado.classList.remove('fw-bold');
-    btnSelecionado.classList.add('text-white');
-}
-</script>
-<script>
-document.getElementById("myForm").addEventListener("submit", function(event) {
-    // Obtener el valor seleccionado del tipo de problema
-    var tipoProblema = document.getElementById("etiqueta").value;
-
-    // Validar si se ha seleccionado una opción válida
-    if (tipoProblema === "") {
-        // Evitar el envío del formulario
-        event.preventDefault();
-
-        // Mostrar un mensaje de error
-        alert("Por favor selecciona un tipo de problema válido.");
+    function abrirModalFunciones() {
+        $('#funcionesModal').modal('show'); // Esto abre el modal
     }
-});
+
+    function abrirModalSoporte() {
+        $('#SoporteModal').modal('show'); // Esto abre el modal
+    }
 </script>
 
 <script>
-$(document).ready(function() {
-    $('form').submit(function(e) {
-        e.preventDefault(); // Evitar el envío del formulario por defecto
+    // Función para agregar la clase 'active' al enlace que se hizo clic
+    function bttnSelecionado(value) {
+        sessionStorage.setItem("bttnSelecionado", value)
+    }
 
-        // Obtener los datos del formulario
-        var formData = $(this).serialize();
+    let valorBtn = sessionStorage.getItem('bttnSelecionado');
+    let btnSelecionado = "";
+    // Iterar sobre la lista de elementos obtenidos
+    if (valorBtn === 'Funciones') {
+        btnSelecionado = document.getElementById("btnNavegadorFunciones");
+        btnSelecionado.classList.remove('fw-bold');
+        btnSelecionado.classList.add('text-white');
+    } else if (valorBtn === 'Inicio') {
+        btnSelecionado = document.getElementById("btnNavegadorInicio");
+        btnSelecionado.classList.remove('fw-bold');
+        btnSelecionado.classList.add('text-white');
+    } else if (valorBtn === 'Acerca') {
+        btnSelecionado = document.getElementById("btnNavegadorAcerca");
+        btnSelecionado.classList.remove('fw-bold');
+        btnSelecionado.classList.add('text-white');
+    } else if (valorBtn === 'Soporte') {
+        btnSelecionado = document.getElementById("btnNavegadorSoporte");
+        btnSelecionado.classList.remove('fw-bold');
+        btnSelecionado.classList.add('text-white');
+    } else if (valorBtn === 'Motor') {
+        btnSelecionado = document.getElementById("btnNavegadorMotor");
+        btnSelecionado.classList.remove('fw-bold');
+        btnSelecionado.classList.add('text-white');
+    }
+</script>
+<script>
+    document.getElementById("myForm").addEventListener("submit", function (event) {
+        // Obtener el valor seleccionado del tipo de problema
+        var tipoProblema = document.getElementById("etiqueta").value;
 
-        // Enviar los datos del formulario mediante AJAX
-        $.ajax({
-            type: 'POST',
-            url: '../utils/Registrar_soporte.php', // Ruta al archivo PHP que procesa el formulario
-            data: formData,
-            dataType: 'json', // Especificar que esperamos una respuesta JSON
-            success: function(response) {
-                // Mostrar alerta basado en la respuesta del servidor
-                if (response.registro_exitoso) {
-                    // Alerta de registro exitoso
-                    alert("¡Registro exitoso!");
-                    // Redirigir a la página inicial después de un breve retraso
-                    setTimeout(function() {
-                        window.location.href = '../Main/cliente.php';
-                    }, 200); // Redirigir después de 2 segundos (2000 milisegundos)
-                } else {
-                    alert("Error al registrar: " + response.error);
+        // Validar si se ha seleccionado una opción válida
+        if (tipoProblema === "") {
+            // Evitar el envío del formulario
+            event.preventDefault();
+
+            // Mostrar un mensaje de error
+            alert("Por favor selecciona un tipo de problema válido.");
+        }
+    });
+</script>
+
+<script>
+    $(document).ready(function () {
+        $('form').submit(function (e) {
+            e.preventDefault(); // Evitar el envío del formulario por defecto
+
+            // Obtener los datos del formulario
+            var formData = $(this).serialize();
+
+            // Enviar los datos del formulario mediante AJAX
+            $.ajax({
+                type: 'POST',
+                url: '../utils/Registrar_soporte.php', // Ruta al archivo PHP que procesa el formulario
+                data: formData,
+                dataType: 'json', // Especificar que esperamos una respuesta JSON
+                success: function (response) {
+                    // Mostrar alerta basado en la respuesta del servidor
+                    if (response.registro_exitoso) {
+                        // Alerta de registro exitoso
+                        alert("¡Registro exitoso!");
+                        // Redirigir a la página inicial después de un breve retraso
+                        setTimeout(function () {
+                            window.location.href = '../Main/cliente.php';
+                        }, 200); // Redirigir después de 2 segundos (2000 milisegundos)
+                    } else {
+                        alert("Error al registrar: " + response.error);
+                    }
+                },
+                error: function (xhr, status, error) {
+                    alert("Error en la solicitud AJAX: " + error);
                 }
-            },
-            error: function(xhr, status, error) {
-                alert("Error en la solicitud AJAX: " + error);
-            }
+            });
         });
     });
-});
 </script>
