@@ -26,7 +26,7 @@ if ($_SESSION['user']) {
     <div class="bg-body-secondary m-5 p-3">
         <form method="post">
             <label for="search">Buscar archivos:</label>
-            <input type="text" name="search" id="search">
+            <input type="text" name="search" id="search" required>
             <button type="submit">Buscar</button>
         </form>
 
