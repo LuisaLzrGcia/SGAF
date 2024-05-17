@@ -2,7 +2,7 @@
 if (session_status() !== 2)
     session_start();
 
-include_once ("../utils/ConsultadeNombre.php");
+//include_once ("../utils/ConsultadeNombre.php");
 //include_once("../utils/Generar_folio.php");
 
 ?>
