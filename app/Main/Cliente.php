@@ -32,11 +32,15 @@ if ($_SESSION['user']) {
         <h3>Mis archivos</h3>
         <div class="d-flex align-items-center">
             <div>
-
+                <?php 
+                if (isset($_SESSION['subir']) && $_SESSION['subir'] == 1) {
+                    ?>
                 <form action="../ArchivosAdmin/subirArchivoCliente.php" method="post" enctype="multipart/form-data">
                     <input type="file" name="archivoC" id="archivoC">
                     <button type="submit" class="btn btn-secondary p-1 my-1">Subir Archivo</button>
                 </form>
+                <?php
+                } ?>
             </div>
         </div>
         <?php
@@ -48,13 +52,6 @@ if ($_SESSION['user']) {
                     if ($file != "." && $file != ".."): ?>
         <div class="direccionFile">
             <a class="nombreFile w-100 ms-3" href="<?php echo $_SESSION['url'] . "/" . $file; ?>" target="_blank">
-                <?php if (is_dir($_SESSION['url'] . "/" . $file)): ?>
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-folder"
-                    viewBox="0 0 16 16">
-                    <path
-                        d="M.54 3.87.5 3a2 2 0 0 1 2-2h3.672a2 2 0 0 1 1.414.586l.828.828A2 2 0 0 0 9.828 3h3.982a2 2 0 0 1 1.992 2.181l-.637 7A2 2 0 0 1 13.174 14H2.826a2 2 0 0 1-1.991-1.819l-.637-7a2 2 0 0 1 .342-1.31zM2.19 4a1 1 0 0 0-.996 1.09l.637 7a1 1 0 0 0 .995.91h10.348a1 1 0 0 0 .995-.91l.637-7A1 1 0 0 0 13.81 4zm4.69-1.707A1 1 0 0 0 6.172 2H2.5a1 1 0 0 0-1 .981l.006.139q.323-.119.684-.12h5.396z" />
-                </svg>
-                <?php else: ?>
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                     class="bi bi-file-earmark-text" viewBox="0 0 16 16">
                     <path
@@ -62,21 +59,23 @@ if ($_SESSION['user']) {
                     <path
                         d="M9.5 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.5zm0 1v2A1.5 1.5 0 0 0 11 4.5h2V14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1z" />
                 </svg>
-                <?php endif; ?>
                 <?php echo $file; ?>
             </a>
-            <?php if (!is_dir($_SESSION['url'] . $file)): ?>
+            <?php 
+                if (isset($_SESSION['descargar']) && $_SESSION['descargar'] == 1) {
+                    ?>
             <form action="./descargarArchivo.php?file=<?php echo $file; ?>" method="post">
                 <button class="btn-files btn-descargar p-1 my-1 w-100" type="submit">Descargar</button>
             </form>
-            <?php else: ?>
-            <form action="./irCarpeta.php?file=<?php echo $file; ?>" method="post">
-                <button class="btn-files btn-abrir p-1 my-1 w-100" type="submit">Abrir</button>
-            </form>
-            <?php endif; ?>
-            <form action="./eliminarCarpeta.php?file=<?php echo $file; ?>" method="post">
+            <?php
+                } 
+                if (isset($_SESSION['eliminar']) && $_SESSION['eliminar'] == 1) {
+                    ?>
+            <<form action="./eliminarCarpeta.php?file=<?php echo $file; ?>" method="post">
                 <button class="btn-files btn-eliminar p-1 my-1 w-100" type="submit">Eliminar</button>
-            </form>
+                </form>
+                <?php
+                } ?>
         </div>
         <?php endif;
                 endforeach;

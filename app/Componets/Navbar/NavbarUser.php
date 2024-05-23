@@ -207,7 +207,7 @@ if (session_status() !== 2)
                         </div>
                         <div class="modal-body border" style="text-align: justify;">
                             <!-- Aquí va el formulario de inicio de sesión -->
-                            <form method="post" action="../utils/Registrar_soporte.php ">
+                            <form method="post" action="">
                                 <div class="container border">
                                     <div class="row">
                                         <div class="col-md-6 offset-md-3 ">
@@ -342,40 +342,5 @@ if (session_status() !== 2)
             // Mostrar un mensaje de error
             alert("Por favor selecciona un tipo de problema válido.");
         }
-    });
-</script>
-
-<script>
-    $(document).ready(function () {
-        $('form').submit(function (e) {
-            e.preventDefault(); // Evitar el envío del formulario por defecto
-
-            // Obtener los datos del formulario
-            var formData = $(this).serialize();
-
-            // Enviar los datos del formulario mediante AJAX
-            $.ajax({
-                type: 'POST',
-                url: '../utils/Registrar_soporte.php', // Ruta al archivo PHP que procesa el formulario
-                data: formData,
-                dataType: 'json', // Especificar que esperamos una respuesta JSON
-                success: function (response) {
-                    // Mostrar alerta basado en la respuesta del servidor
-                    if (response.registro_exitoso) {
-                        // Alerta de registro exitoso
-                        alert("¡Registro exitoso!");
-                        // Redirigir a la página inicial después de un breve retraso
-                        setTimeout(function () {
-                            window.location.href = '../Main/cliente.php';
-                        }, 200); // Redirigir después de 2 segundos (2000 milisegundos)
-                    } else {
-                        alert("Error al registrar: " + response.error);
-                    }
-                },
-                error: function (xhr, status, error) {
-                    alert("Error en la solicitud AJAX: " + error);
-                }
-            });
-        });
     });
 </script>
