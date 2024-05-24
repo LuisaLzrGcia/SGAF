@@ -115,7 +115,7 @@ if (session_status() !== 2)
             </div>
 
             <div class="mx-2 d-flex justify-content-center align-items-center ">
-                <a class="nav-link d-flex justify-content-center align-items-center" href="http://"
+                <a class="nav-link d-flex justify-content-center align-items-center" href="../Soporte/Admin.php"
                     onclick="bttnSelecionado(`Reporte`)">
                     <div class="d-flex justify-content-center align-items-center">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
