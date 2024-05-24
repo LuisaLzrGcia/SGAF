@@ -86,6 +86,7 @@ if ($_SESSION['user']) {
                             if (mysqli_num_rows($result) > 0) {
                                 // Iterar sobre los resultados y mostrarlos
                                 while ($row = mysqli_fetch_assoc($result)) {
+                                    if($row['apellido_pa']!='MASTER'){
                                     ?>
                                     <tr>
                                         <th scope="row">
@@ -146,6 +147,7 @@ if ($_SESSION['user']) {
                                         </td>
                                     </tr>
                                     <?php
+                                    }
                                 }
                             } else {
                                 echo "No se encontraron resultados.";

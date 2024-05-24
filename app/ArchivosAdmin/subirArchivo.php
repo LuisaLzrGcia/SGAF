@@ -33,7 +33,8 @@ if (isset($_FILES['archivo'])) {
 
                 // Mueve el archivo de la ubicación temporal a la ubicación deseada
                 if (move_uploaded_file($fileTmpName, $uploadPath)) {
-                    header("Location: main.php");
+                    $previousPage = $_SERVER['HTTP_REFERER'];
+                        header("Location: $previousPage");
                 } else {
                     echo "Ocurrió un error al subir el archivo.";
                 }

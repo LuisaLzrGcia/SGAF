@@ -16,12 +16,9 @@ if (session_status() !== 2)
         <div class="">
             <img class="logo-image rounded-circle" src="" alt="" srcset="../../public/images/logoF.png">
         </div>
-
-
-
         <div class="d-flex mx-4">
             <div class="mx-2 d-flex justify-content-center align-items-center">
-                <a class="nav-link d-flex justify-content-center align-items-center " href="../Main/Cliente.php"
+                <a id="inicioBtnU" class="nav-link d-flex justify-content-center align-items-center " href="../Main/Cliente.php"
                     onclick="bttnSelecionado(`Inicio`)">
                     <div class="d-flex justify-content-center align-items-center ">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
@@ -79,8 +76,8 @@ if (session_status() !== 2)
             </div>
 
             <div class="mx-2 d-flex justify-content-center align-items-center">
-                <a class="nav-link d-flex justify-content-center align-items-center" href="#"
-                    onclick="abrirModalSoporte(`Soporte`)">
+                <a id="soporteBtnU" class="nav-link d-flex justify-content-center align-items-center" href="../Soporte/Cliente.php"
+                    onclick="bttnSelecionado('Soporte')">
                     <div class="d-flex justify-content-center align-items-center">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                             class="bi bi-headset" viewBox="0 0 16 16">
@@ -186,11 +183,7 @@ if (session_status() !== 2)
                                     </li>
                                 </div>
                             </div>
-
-
-
                         </div>
-
                     </div>
                 </div>
             </div>
@@ -284,63 +277,36 @@ if (session_status() !== 2)
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
     integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous">
-    </script>
+</script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
     integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous">
-    </script>
+</script>
 <script>
-    function abrirModalFunciones() {
-        $('#funcionesModal').modal('show'); // Esto abre el modal
-    }
+function abrirModalFunciones() {
+    $('#funcionesModal').modal('show'); // Esto abre el modal
+}
 
-    function abrirModalSoporte() {
-        $('#SoporteModal').modal('show'); // Esto abre el modal
-    }
+function abrirModalSoporte() {
+    $('#SoporteModal').modal('show'); // Esto abre el modal
+}
 </script>
 
 <script>
-    // Función para agregar la clase 'active' al enlace que se hizo clic
-    function bttnSelecionado(value) {
-        sessionStorage.setItem("bttnSelecionado", value)
-    }
+// Función para agregar la clase 'active' al enlace que se hizo clic
+function bttnSelecionado(value) {
+    sessionStorage.setItem("bttnSelecionado", value)
+}
 
-    let valorBtn = sessionStorage.getItem('bttnSelecionado');
-    let btnSelecionado = "";
-    // Iterar sobre la lista de elementos obtenidos
-    if (valorBtn === 'Funciones') {
-        btnSelecionado = document.getElementById("btnNavegadorFunciones");
-        btnSelecionado.classList.remove('fw-bold');
-        btnSelecionado.classList.add('text-white');
-    } else if (valorBtn === 'Inicio') {
-        btnSelecionado = document.getElementById("btnNavegadorInicio");
-        btnSelecionado.classList.remove('fw-bold');
-        btnSelecionado.classList.add('text-white');
-    } else if (valorBtn === 'Acerca') {
-        btnSelecionado = document.getElementById("btnNavegadorAcerca");
-        btnSelecionado.classList.remove('fw-bold');
-        btnSelecionado.classList.add('text-white');
-    } else if (valorBtn === 'Soporte') {
-        btnSelecionado = document.getElementById("btnNavegadorSoporte");
-        btnSelecionado.classList.remove('fw-bold');
-        btnSelecionado.classList.add('text-white');
-    } else if (valorBtn === 'Motor') {
-        btnSelecionado = document.getElementById("btnNavegadorMotor");
-        btnSelecionado.classList.remove('fw-bold');
-        btnSelecionado.classList.add('text-white');
-    }
-</script>
-<script>
-    document.getElementById("myForm").addEventListener("submit", function (event) {
-        // Obtener el valor seleccionado del tipo de problema
-        var tipoProblema = document.getElementById("etiqueta").value;
-
-        // Validar si se ha seleccionado una opción válida
-        if (tipoProblema === "") {
-            // Evitar el envío del formulario
-            event.preventDefault();
-
-            // Mostrar un mensaje de error
-            alert("Por favor selecciona un tipo de problema válido.");
-        }
-    });
+let valorBtn = sessionStorage.getItem('bttnSelecionado');
+let btnSelecionado = "";
+// Iterar sobre la lista de elementos obtenidos
+if (valorBtn === 'Soporte') {
+    btnSelecionado = document.getElementById("soporteBtnU");
+    btnSelecionado.classList.remove('fw-bold');
+    btnSelecionado.classList.add('text-white');
+} else if (valorBtn === 'Inicio') {
+    btnSelecionado = document.getElementById("btnNavegadorInicio");
+    btnSelecionado.classList.remove('fw-bold');
+    btnSelecionado.classList.add('text-white');
+}
 </script>

@@ -1,5 +1,4 @@
 <?php
-if (session_status() !== 2)
     session_start();
 if ($_SESSION['user']) {
     ?>
@@ -29,7 +28,8 @@ if ($_SESSION['user']) {
         </div>
     </div>
     <div class="bg-body-secondary p-3 m-5">
-        <h3>Mis archivos</h3>
+        <h3>Carpeta asignada: <span class='text-white bg-black p-1'><?php echo $_SESSION['carpeta'];?></span>
+        </h3>
         <div class="d-flex align-items-center">
             <div>
                 <?php 
@@ -71,7 +71,7 @@ if ($_SESSION['user']) {
                 } 
                 if (isset($_SESSION['eliminar']) && $_SESSION['eliminar'] == 1) {
                     ?>
-            <<form action="./eliminarCarpeta.php?file=<?php echo $file; ?>" method="post">
+            <form action="../ArchivosAdmin/eliminarCarpeta.php?file=<?php echo $file; ?>" method="post">
                 <button class="btn-files btn-eliminar p-1 my-1 w-100" type="submit">Eliminar</button>
                 </form>
                 <?php

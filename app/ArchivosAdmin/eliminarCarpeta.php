@@ -8,11 +8,13 @@ if (isset($_GET['file'])) {
     if (is_file($ruta)) {
         // Elimina el archivo
         if (unlink($ruta)) {
-            header("Location: main.php");
+            $previousPage = $_SERVER['HTTP_REFERER'];
+                        header("Location: $previousPage");
         } else {
             echo "Hubo un error al intentar eliminar el archivo.";
             sleep(3);
-            header("Location: main.php");
+            $previousPage = $_SERVER['HTTP_REFERER'];
+                        header("Location: $previousPage");
         }
     } elseif (is_dir($ruta)) { // Verifica si es un directorio (carpeta)
         // Elimina el directorio y su contenido
@@ -28,7 +30,8 @@ if (isset($_GET['file'])) {
                 mysqli_stmt_bind_param($stmt, "s", $nombreCarpeta);
                 // Ejecutar la declaración
                 if (mysqli_stmt_execute($stmt)) {
-                    header("Location: main.php");
+                    $previousPage = $_SERVER['HTTP_REFERER'];
+                        header("Location: $previousPage");
                     exit(); // Termina la ejecución del script después de redirigir
                 } else {
                     echo "Error al ejecutar la consulta: " . mysqli_error($conexion);
@@ -42,7 +45,8 @@ if (isset($_GET['file'])) {
         } else {
             echo "Hubo un error al intentar eliminar la carpeta.";
             sleep(3);
-            header("Location: main.php");
+            $previousPage = $_SERVER['HTTP_REFERER'];
+                        header("Location: $previousPage");
         }
     } else {
         echo "El elemento no es ni un archivo ni una carpeta.";

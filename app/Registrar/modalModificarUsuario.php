@@ -92,7 +92,7 @@
 
         modalModificarUsuario.addEventListener('shown.bs.modal', function () {
             var rolSeleccionado = document.getElementById('rolF').value;
-            if (rolSeleccionado == 'admin') {
+            if (rolSeleccionado == 'admin' || rolSeleccionado == 'master') {
                 document.getElementById('eliminarBtnContainer').classList.remove('w-50');
                 document.getElementById('eliminarBtnContainer').classList.add('d-none');
                 document.getElementById('guardarBtnContainer').classList.remove('w-50');

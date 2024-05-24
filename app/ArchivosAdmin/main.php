@@ -1,7 +1,5 @@
 <?php
-if (session_status() !== 2) {
     session_start();
-}
 if ($_SESSION['user']) {
     ?>
 
@@ -24,7 +22,7 @@ if ($_SESSION['user']) {
             include_once "../Componets/Navbar/NavbarUser.php";
         }
         include_once "modalRenombrar.php";
-        ?>
+    ?>
     <div class="bg-body-secondary m-5 p-3">
         <div class="d-flex align-items-center">
             <?php if ($_SESSION['btnRegresar']): ?>
@@ -41,16 +39,12 @@ if ($_SESSION['user']) {
             </div>
             <?php endif; ?>
             <div class="me-2">
-                <?php
-                    if ($_SESSION['btnRegresar'] != true) {
-                        ?>
+                <?php if (!$_SESSION['btnRegresar']): ?>
                 <form action="crearCarpeta.php" method="post">
                     <input type="text" name="nombreCarpeta" placeholder="Nombre de la carpeta" required>
                     <button type="submit" class="btn btn-secondary p-1 my-1">Crear Carpeta</button>
                 </form>
-                <?php
-                    }
-                    ?>
+                <?php endif; ?>
             </div>
             <div>
                 <form action="subirArchivo.php" method="post" enctype="multipart/form-data">
@@ -73,7 +67,7 @@ if ($_SESSION['user']) {
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-folder"
                     viewBox="0 0 16 16">
                     <path
-                        d="M.54 3.87.5 3a2 2 0 0 1 2-2h3.672a2 2 0 0 1 1.414.586l.828.828A2 2 0 0 0 9.828 3h3.982a2 2 0 0 1 1.992 2.181l-.637 7A2 2 0 0 1 13.174 14H2.826a2 2 0 0 1-1.991-1.819l-.637-7a2 2 0 0 1 .342-1.31zM2.19 4a1 1 0 0 0-.996 1.09l.637 7a1 1 0 0 0 .995.91h10.348a1 1 0 0 0 .995-.910l.637-7A1 1 0 0 0 13.81 4zm4.69-1.707A1 1 0 0 0 6.172 2H2.5a1 1 0 0 0-1 .981l.006.139q.323-.119.684-.12h5.396z" />
+                        d="M.54 3.87.5 3a2 2 0 0 1 2-2h3.672a2 2 0 0 1 1.414.586l.828.828A2 2 0 0 0 9.828 3h3.982a2 2 0 0 1 1.992 2.181l-.637 7A2 2 0 0 1 13.174 14H2.826a2 2 0 0 1-1.991-1.819l-.637-7a2 2 0 0 1 .342-1.31zM2.19 4a1 1 0 0 0-.996 1.09l.637 7a1 1 0 0 0 .995.910h10.348a1 1 0 0 0 .995-.910l.637-7A1 1 0 0 0 13.81 4zm4.69-1.707A1 1 0 0 0 6.172 2H2.5a1 1 0 0 0-1 .981l.006.139q.323-.119.684-.12h5.396z" />
                 </svg>
                 <?php else: ?>
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
@@ -86,48 +80,22 @@ if ($_SESSION['user']) {
                 <?php endif; ?>
                 <?php echo $file; ?>
             </a>
-            <?php if (!is_dir($_SESSION['actualDireccion'] . $file)): ?>
-            <form action="./descargarArchivo.php?file=<?php echo $file; ?>" method="post">
-                <button class="btn-files btn-descargar p-1 my-1 w-100" type="submit">Descargar</button>
-            </form>
-            <?php else: ?>
+            <?php if (is_dir($_SESSION['actualDireccion'] . "/" . $file)): ?>
             <form action="./irCarpeta.php?file=<?php echo $file; ?>" method="post">
                 <button class="btn-files btn-abrir p-1 my-1 w-100" type="submit">Abrir</button>
             </form>
             <button class="btn-files btn-renombrar p-1 my-1 w-100" type="button" data-bs-toggle="modal"
                 data-bs-target="#modalRenombrar" data-file="<?php echo $file; ?>">Renombrar</button>
+            <?php else: ?>
+            <form action="./descargarArchivo.php?file=<?php echo $file; ?>" method="post">
+                <button class="btn-files btn-descargar p-1 my-1 w-100" type="submit">Descargar</button>
+            </form>
             <?php endif; ?>
             <form action="./eliminarCarpeta.php?file=<?php echo $file; ?>" method="post">
                 <button class="btn-files btn-eliminar p-1 my-1 w-100" type="submit">Eliminar</button>
             </form>
         </div>
-        <?php endif;
-                endforeach;
-            }
-            ?>
-
-    </div>
-
-    <!-- Modal Renombrar -->
-    <div class="modal fade" id="modalRenombrar" tabindex="-1" aria-labelledby="modalRenombrarLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="modalRenombrarLabel">Renombrar Archivo</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <form id="formRenombrar" action="renombrarArchivo.php" method="post">
-                        <div class="mb-3">
-                            <label for="nuevoNombre" class="form-label">Nuevo Nombre</label>
-                            <input type="text" class="form-control" id="nuevoNombre" name="nuevoNombre" required>
-                        </div>
-                        <input type="hidden" id="archivoActual" name="archivoActual">
-                        <button type="submit" class="btn btn-primary">Renombrar</button>
-                    </form>
-                </div>
-            </div>
-        </div>
+        <?php endif; endforeach; } ?>
     </div>
 </body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
@@ -140,10 +108,10 @@ modalRenombrar.addEventListener('show.bs.modal', function(event) {
     var file = button.getAttribute('data-file');
 
     var modalTitle = modalRenombrar.querySelector('.modal-title');
-    var archivoActualInput = modalRenombrar.querySelector('#archivoActual');
+    var carpetaActualInput = modalRenombrar.querySelector("#carpetaActualN");
 
-    modalTitle.textContent = 'Renombrar [' + file + ' ]';
-    archivoActualInput.value = file;
+    modalTitle.textContent = 'Renombrar otro [' + file + ']';
+    carpetaActualInput.value = file;
 });
 </script>
 

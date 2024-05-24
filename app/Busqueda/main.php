@@ -25,9 +25,17 @@ if ($_SESSION['user']) {
 <body class="bg-general">
     <div class="bg-body-secondary m-5 p-3">
         <form method="post">
-            <label for="search">Buscar archivos:</label>
-            <input type="text" name="search" id="search" required>
-            <button type="submit">Buscar</button>
+            <div class="row g-3 align-items-center">
+                <div class="col-auto">
+                    <label for="inputPassword6" class="col-form-label">Buscar archivos:</label>
+                </div>
+                <div class="col-auto">
+                    <input type="text" id="search" name="search" class="form-control" required>
+                </div>
+                <div class="col-auto">
+                    <button type="submit" class="btn btn-primary">Buscar</button>
+                </div>
+            </div>
         </form>
 
         <?php
@@ -79,7 +87,7 @@ if ($_SESSION['user']) {
                     echo "</a>";
                     echo "<form action='descargarArchivo.php' method='post'>";
                     echo "<input type='hidden' name='file' value='" . urlencode($filePath) . "'>";
-                    echo "<button class='btn-files btn-descargar p-1 my-1 w-100' type='submit'>Descargar</button>";
+                    echo "<button class='btn-files btn-descargar p-1 my-1 w-100 ' type='submit'>Descargar</button>";
                     echo "</form>";
                     echo "</div>";
                 }
@@ -92,8 +100,8 @@ if ($_SESSION['user']) {
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-        crossorigin="anonymous"></script>
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
+    </script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </body>
 
