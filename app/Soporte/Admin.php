@@ -23,7 +23,7 @@ if ($_SESSION['user']) {
     include_once "ModalNuevoTicket.php";
     include_once "generarFolio.php";
     include_once "DetallesTicket.php";
-    echo $_SESSION['tickets']
+    echo print_r($_SESSION['tickets'], true)
     ?>
     <div class="bg-body-secondary m-5 p-3">
         <div class="pb-3 d-flex justify-content-between">
