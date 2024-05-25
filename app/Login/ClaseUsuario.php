@@ -42,8 +42,9 @@ class Usuarios
             $_SESSION['user'] = true;
             $_SESSION['btnRegresar'] = false;
 
-            $consultaTickets = $_SESSION['rol'] == 'master' ? 
-                "SELECT * FROM tickets" : 
+
+            $consultaTickets = $_SESSION['rol'] == 'admin'  ? 
+                "SELECT * FROM usuarios_tickets" : 
                 "SELECT * FROM tickets WHERE id_usuario = ?";
             
             $stmtTickets = $conexion->prepare($consultaTickets);
@@ -51,7 +52,7 @@ class Usuarios
                 die("Error en la preparación de la consulta de tickets: " . $conexion->error);
             }
             
-            if ($_SESSION['rol'] != 'master') {
+            if ($_SESSION['rol'] != 'admin') {
                 $stmtTickets->bind_param("i", $datosUsuario['id_usuario']);
             }
 
@@ -75,6 +76,41 @@ class Usuarios
             if ($resultado) {
                 $resultado->free();
             }
+
+            $consultaTickets = $_SESSION['rol'] == 'master'  ? 
+            "SELECT * FROM usuarios_tickets" : 
+            "SELECT * FROM tickets WHERE id_usuario = ?";
+        
+        $stmtTickets = $conexion->prepare($consultaTickets);
+        if (!$stmtTickets) {
+            die("Error en la preparación de la consulta de tickets: " . $conexion->error);
+        }
+        
+        if ($_SESSION['rol'] != 'master') {
+            $stmtTickets->bind_param("i", $datosUsuario['id_usuario']);
+        }
+
+        $stmtTickets->execute();
+        $resultado = $stmtTickets->get_result();
+
+        // Inicializar un array para almacenar los datos de los tickets
+        $tickets = array();
+        
+        if ($resultado && $resultado->num_rows > 0) {
+            // Recorrer los resultados y guardarlos en el array
+            while ($fila = $resultado->fetch_assoc()) {
+                $tickets[] = $fila; // Agregar la fila al array de tickets
+            }
+        }
+        
+        // Guardar el array de tickets en una variable de sesión
+        $_SESSION['tickets'] = $tickets;
+
+        // Liberar los resultados y cerrar las declaraciones
+        if ($resultado) {
+            $resultado->free();
+        }
+
             $stmtTickets->close();
             $stmt->close();
 

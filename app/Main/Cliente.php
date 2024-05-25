@@ -64,7 +64,7 @@ if ($_SESSION['user']) {
             <?php 
                 if (isset($_SESSION['descargar']) && $_SESSION['descargar'] == 1) {
                     ?>
-            <form action="./descargarArchivo.php?file=<?php echo $file; ?>" method="post">
+            <form action="../ArchivosAdmin/descargarArchivo.php?file=<?php echo $file; ?>" method="post">
                 <button class="btn-files btn-descargar p-1 my-1 w-100" type="submit">Descargar</button>
             </form>
             <?php

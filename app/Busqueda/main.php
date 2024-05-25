@@ -3,7 +3,11 @@ if (session_status() !== 2) session_start();
 if ($_SESSION['user']) {
     if ($_SESSION['rol'] == "admin") {
         include_once "../Componets/Navbar/NavbarAdmin.php";
-    } else {
+    } else  if ($_SESSION['rol'] == "master") {
+        
+        include_once "../Componets/Navbar/NavbarMaster.php";
+
+    }else{
         include_once "../Componets/Navbar/NavbarUser.php";
     }
 } else {
@@ -67,7 +71,7 @@ if ($_SESSION['user']) {
 
         if (isset($_POST['search'])) {
             $searchTerm = $_POST['search'];
-            $directory = 'C:\Users\luisa\Downloads\sgaf'; // Especifica la ruta al directorio que deseas buscar
+            $directory = $_SESSION['url']; // Especifica la ruta al directorio que deseas buscar
         
             // Realizamos la búsqueda recursiva
             $matchingFiles = searchFiles($directory, $searchTerm);

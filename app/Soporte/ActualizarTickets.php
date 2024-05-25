@@ -7,13 +7,23 @@ if (session_status() != PHP_SESSION_ACTIVE) {
 
 // Verificar si los datos han sido enviados
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Obtener los datos del formulario y limpiarlos
-    $id_usuario = intval($_SESSION["id_usuario"]);
-
-    // Consulta para obtener los tickets del usuario
-    $consultaTickets = "SELECT * FROM tickets WHERE id_usuario = ?";
-    $stmtTickets = $conexion->prepare($consultaTickets);
-    $stmtTickets->bind_param("i", $id_usuario);
+    // Obtener el rol del usuario desde la sesión
+    $rol = $_SESSION['rol'];
+    
+    if ($rol == 'admin' || $rol == 'master' ) {
+        // Consulta para obtener todos los tickets si el usuario es admin
+        $consultaTickets = "SELECT * FROM usuarios_tickets";
+        $stmtTickets = $conexion->prepare($consultaTickets);
+    } else {
+        // Obtener el id_usuario de la sesión y limpiarlo
+        $id_usuario = intval($_SESSION["id_usuario"]);
+        
+        // Consulta para obtener los tickets del usuario específico
+        $consultaTickets = "SELECT * FROM tickets WHERE id_usuario = ?";
+        $stmtTickets = $conexion->prepare($consultaTickets);
+        $stmtTickets->bind_param("i", $id_usuario);
+    }
+    
     $stmtTickets->execute();
     $resultado = $stmtTickets->get_result();
 

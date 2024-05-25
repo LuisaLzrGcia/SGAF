@@ -19,11 +19,19 @@ if ($_SESSION['user']) {
 <body class="bg-general">
 
     <?php
+ if ($_SESSION['rol'] == "admin") {
     include_once "../Componets/Navbar/NavbarAdmin.php";
+} else  if ($_SESSION['rol'] == "master") {
+    
+    include_once "../Componets/Navbar/NavbarMaster.php";
+
+}else{
+    include_once "../Componets/Navbar/NavbarUser.php";
+}
+
     include_once "ModalNuevoTicket.php";
     include_once "generarFolio.php";
-    include_once "DetallesTicket.php";
-    echo print_r($_SESSION['tickets'], true)
+    include_once "DetallesTicketAdmin.php";
     ?>
     <div class="bg-body-secondary m-5 p-3">
         <div class="pb-3 d-flex justify-content-between">
@@ -44,6 +52,7 @@ if ($_SESSION['user']) {
                 <thead>
                     <tr>
                         <th>Folio</th>
+                        <th>Nombre</th>
                         <th>Título</th>
                         <th>Descripción</th>
                         <th>Estado</th>
@@ -61,6 +70,7 @@ if ($_SESSION['user']) {
                         ?>
                     <tr>
                         <td><?php echo $ticket['num_seguimiento']; ?></td>
+                        <td><?php echo $ticket['nombre']. " ".$ticket['apellido_pa']." ".$ticket['apellido_ma']; ?></td>
                         <td><?php echo $ticket['titulo']; ?></td>
                         <td><?php echo $ticket['descripcion']; ?></td>
                         <td>
@@ -79,16 +89,26 @@ if ($_SESSION['user']) {
                                 }
                                 ?>
                         </td>
-                        <td><?php echo $ticket['fecha_creacion']; ?></td>
+                        <td><?php echo $ticket['fecha_creacion_ticket']; ?></td>
                         <td>
                             <div class="d-flex justify-content-center align-content-center">
                                 <button type="button" class="btn btn-primary modalVerDetalleBtn" data-bs-toggle="modal"
-                                    data-bs-target="#modalDetalleTicket" data-id="<?php echo $ticket['num_seguimiento']; ?>"
+                                    data-bs-target="#modalDetalleTicket"
+                                    data-id="<?php echo $ticket['num_seguimiento']; ?>"
+                                    data-id-usuario="<?php echo $ticket['id_usuario']; ?>"
+                                    data-nombre="<?php echo $ticket['nombre']; ?>"
+                                    data-apellido-pa="<?php echo $ticket['apellido_pa']; ?>"
+                                    data-apellido-ma="<?php echo $ticket['apellido_ma']; ?>"
+                                    data-rfc="<?php echo $ticket['rfc']; ?>" data-rol="<?php echo $ticket['rol']; ?>"
+                                    data-correo="<?php echo $ticket['correo']; ?>"
+                                    data-empresa="<?php echo $ticket['empresa']; ?>"
+                                    data-id-ticket="<?php echo $ticket['id_ticket']; ?>"
                                     data-titulo="<?php echo $ticket['titulo']; ?>"
                                     data-descripcion="<?php echo $ticket['descripcion']; ?>"
                                     data-solucion="<?php echo $ticket['solucion']; ?>"
-                                    data-fechaCreacion="<?php echo $ticket['fecha_creacion']; ?>"
-                                    data-fechaCierre="<?php echo $ticket['fecha_cierre']; ?>">
+                                    data-estado="<?php echo $ticket['estado']; ?>"
+                                    data-fecha-creacion="<?php echo $ticket['fecha_creacion_ticket']; ?>"
+                                    data-fecha-cierre="<?php echo $ticket['fecha_cierre']; ?>">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                         class="bi bi-eye" viewBox="0 0 16 16">
                                         <path
@@ -96,6 +116,7 @@ if ($_SESSION['user']) {
                                         <path d="M8 9a1 1 0 1 0 0-2 1 1 0 0 0 0 2z" />
                                     </svg>
                                 </button>
+
                             </div>
                         </td>
                     </tr>
@@ -147,23 +168,23 @@ document.querySelectorAll('.modalVerDetalleBtn').forEach(function(button) {
 
         var id = button.getAttribute('data-id')
         document.getElementById('numeroT').value = id;
-        
+
         var titulo = button.getAttribute('data-titulo')
         document.getElementById('tituloT').value = titulo;
 
         var descripcion = button.getAttribute('data-descripcion')
         document.getElementById('descripcionT').value = descripcion;
-        
+
         var solucion = button.getAttribute('data-solucion')
         document.getElementById('solucionT').value = solucion;
 
-        var fechaCreacion = button.getAttribute('data-fechaCreacion')
+        var fechaCreacion = button.getAttribute('data-fecha-creacion')
         document.getElementById('fechaCreacionT').value = fechaCreacion;
 
-        var fechaCierre = button.getAttribute('data-fechaCierre')
+        var fechaCierre = button.getAttribute('data-fecha-cierre')
         document.getElementById('fechaCierreT').value = fechaCierre;
 
-        var loginModal = new bootstrap.Modal(document.getElementById('detallesTicket'));
+        var loginModal = new bootstrap.Modal(document.getElementById('detallesTicketA'));
         loginModal.show();
     });
 });

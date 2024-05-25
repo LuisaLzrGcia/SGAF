@@ -19,11 +19,14 @@ if ($_SESSION['user']) {
 
     <body class="bg-general">
         <?php
-        if ($_SESSION['rol'] == "admin") {
+         if ($_SESSION['rol'] == "admin") {
             include_once "../Componets/Navbar/NavbarAdmin.php";
-        } else {
-            include_once "../Componets/Navbar/NavbarUser.php";
+        } else  if ($_SESSION['rol'] == "master") {
+            
+            include_once "../Componets/Navbar/NavbarMaster.php";
 
+        }else{
+            include_once "../Componets/Navbar/NavbarUser.php";
         }
 
         include_once ("../Conexion.php"); // Incluir el archivo de conexión

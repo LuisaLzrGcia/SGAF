@@ -376,6 +376,54 @@
     });
   });
 </script>
+<script>
+  // Capturar el envío del formulario y manejar la respuesta
+  document.querySelector('form').addEventListener('submit', function(event) {
+      event.preventDefault(); // Evitar que el formulario se envíe normalmente
+  
+      // Obtener los datos del formulario
+      var formData = new FormData(this);
+  
+      // Realizar una solicitud POST al servidor
+      fetch('./app/Login/Login.php', {
+          method: 'POST',
+          body: formData
+      })
+      .then(response => {
+          if (response.redirected) {
+              // Si la respuesta incluye una redirección, redirigir al destino
+              window.location.href = response.url;
+          } else {
+              // Convertir la respuesta a JSON
+              return response.json();
+          }
+      })
+      .then(data => {
+          // Eliminar cualquier alerta existente
+          var existingAlert = document.querySelector('.alert');
+          if (existingAlert) {
+              existingAlert.remove();
+          }
+  
+          // Verificar si la autenticación fue exitosa
+          if (data.success) {
+              // Redireccionar a la página de inicio
+              window.location.href = '../Main/Main.php';
+          } else {
+              // Crear una alerta de Bootstrap
+              var alertDiv = document.createElement('div');
+              alertDiv.classList.add('alert', 'alert-danger');
+              alertDiv.textContent = data.error;
+  
+              // Agregar la alerta al DOM
+              document.querySelector('.modal-body').appendChild(alertDiv);
+          }
+      })
+      .catch(error => {
+          console.error('Error:', error);
+      });
+  });
+   </script>
 </body>
 
 </html>

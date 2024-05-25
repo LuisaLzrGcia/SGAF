@@ -5,54 +5,42 @@ if (session_status() != PHP_SESSION_ACTIVE) {
     session_start();
 }
 
-// Verify if the request method is POST
+// Verificar si los datos han sido enviados
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Check if the database connection is successful
-    if ($conexion->connect_error) {
-        die("Connection failed: " . $conexion->connect_error);
-    }
+    // Obtener los datos del formulario y limpiarlos
+    $num_seguimiento = $_POST["numeroT"];
+    $solucion = htmlspecialchars(trim($_POST["solucionT"]));
 
-    // Query to get the tickets
-    $consultaTickets = "SELECT * FROM usuarios";
-    $stmtTickets = $conexion->prepare($consultaTickets);
+    // Preparar la consulta SQL
+    $stmt = $conexion->prepare("UPDATE tickets SET estado = 'cerrado', solucion = ?, fecha_cierre = NOW() WHERE num_seguimiento = ?");
 
-    if ($stmtTickets) {
-        $stmtTickets->execute();
-        $resultado = $stmtTickets->get_result();
-
-        if ($resultado) {
-            // Initialize an array to store the ticket data
-            $tickets = array();
-
-            // Loop through the results and store them in the array
-            while ($fila = $resultado->fetch_assoc()) {
-                $tickets[] = $fila;
-            }
-            $ticket = array('Apple', 'Banana', 'Cherry');
-
-            // Store the array of tickets in a session variable
-            $_SESSION['tickets'] = $tickets;
-
-            // Redirect back to the previous page
-            $referer = isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : 'default_page.php';
-            header("Location: $referer");
+    // Verificar si la preparación fue exitosa
+    if ($stmt) {
+        // Enlazar los parámetros
+        $stmt->bind_param("ss", $solucion, $num_seguimiento);
+        
+        // Ejecutar la consulta
+        if ($stmt->execute()) {
+            include_once "ActualizarTickets.php";
+            // Redirigir a la página anterior si la ejecución es exitosa
+            header("Location: {$_SERVER['HTTP_REFERER']}");
             exit();
         } else {
-            // Show an error message if the query fails
-            echo '<script>alert("Ocurrió un error al obtener los tickets."); window.history.back();</script>';
+            // Mostrar un mensaje de error si la ejecución falla
+            echo '<script>alert("Ocurrió un error al ejecutar la consulta."); window.history.back();</script>';
         }
 
-        // Close the ticket statement
-        $stmtTickets->close();
+        // Cerrar el statement
+        $stmt->close();
     } else {
-        // Show an error message if the statement preparation fails
+        // Mostrar un mensaje de error si la preparación falla
         echo '<script>alert("Ocurrió un error al preparar la consulta."); window.history.back();</script>';
     }
+
+    // Cerrar la conexión
+    $conexion->close();
 } else {
-    // Show an error message if the request method is not POST
+    // Mostrar un mensaje de error si el método de solicitud no es POST
     echo '<script>alert("Método de solicitud no permitido."); window.history.back();</script>';
 }
-
-// Close the database connection
-$conexion->close();
 ?>

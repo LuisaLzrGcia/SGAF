@@ -16,11 +16,15 @@ if ($_SESSION['user']) {
 
 <body class="bg-general">
     <?php
-        if ($_SESSION['rol'] == "admin") {
-            include_once "../Componets/Navbar/NavbarAdmin.php";
-        } else {
-            include_once "../Componets/Navbar/NavbarUser.php";
-        }
+       if ($_SESSION['rol'] == "admin") {
+        include_once "../Componets/Navbar/NavbarAdmin.php";
+    } else  if ($_SESSION['rol'] == "master") {
+        
+        include_once "../Componets/Navbar/NavbarMaster.php";
+
+    }else{
+        include_once "../Componets/Navbar/NavbarUser.php";
+    }
         include_once "modalRenombrar.php";
     ?>
     <div class="bg-body-secondary m-5 p-3">

@@ -20,9 +20,12 @@ if ($_SESSION['user']) {
         <?php
         if ($_SESSION['rol'] == "admin") {
             include_once "../Componets/Navbar/NavbarAdmin.php";
-        } else {
-            include_once "../Componets/Navbar/NavbarUser.php";
+        } else  if ($_SESSION['rol'] == "master") {
+            
+            include_once "../Componets/Navbar/NavbarMaster.php";
 
+        }else{
+            include_once "../Componets/Navbar/NavbarUser.php";
         }
         include_once ("./modalRegistrarUsuario.php");
         include_once ("./modalModificarUsuario.php");
