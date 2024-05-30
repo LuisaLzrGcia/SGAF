@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -71,8 +72,8 @@
 
 
 
-    <!-- Modal de inicio de sesión -->
-    <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <!-- Modal de inicio de sesión -->
+  <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
@@ -85,9 +86,9 @@
               <!-- Email input -->
               <div data-mdb-input-init class="d-flex justify-content-center align-items-center">
                 <div>
-                  <input type="text" id="user" name="user" class="form-control form-control-lg "
-                    placeholder="Ingresa tu correo " style="width: 250px;" />
-                  <label class="form-label title-gradient" for="form3Example3">Correo electronico</label>
+                  <input type="text" id="rfc" name="rfc" class="form-control form-control-lg "
+                    placeholder="Ingresa tu rfc " style="width: 250px;" />
+                  <label class="form-label title-gradient" for="form3Example3">RFC</label>
                 </div>
               </div>
               <!-- Password input -->
@@ -98,7 +99,7 @@
                   <label class="form-label title-gradient" for="form3Example4">Contraseña</label>
                 </div>
               </div>
-              <button style="margin-bottom: 10px;"  type="submit" class="btn btn-primary">Iniciar sesión</button>
+              <button style="margin-bottom: 10px;" type="submit" class="btn btn-primary">Iniciar sesión</button>
             </form>
           </div>
 
@@ -316,53 +317,53 @@
   });
 </script>
 <script>
-// Capturar el envío del formulario y manejar la respuesta
-document.querySelector('form').addEventListener('submit', function(event) {
-    event.preventDefault(); // Evitar que el formulario se envíe normalmente
-
-    // Obtener los datos del formulario
-    var formData = new FormData(this);
-
-    // Realizar una solicitud POST al servidor
-    fetch('./app/Login/Login.php', {
-        method: 'POST',
-        body: formData
-    })
-    .then(response => {
-        if (response.redirected) {
-            // Si la respuesta incluye una redirección, redirigir al destino
-            window.location.href = response.url;
-        } else {
-            // Convertir la respuesta a JSON
-            return response.json();
-        }
-    })
-    .then(data => {
-        // Eliminar cualquier alerta existente
-        var existingAlert = document.querySelector('.alert');
-        if (existingAlert) {
-            existingAlert.remove();
-        }
-
-        // Verificar si la autenticación fue exitosa
-        if (data.success) {
-            // Redireccionar a la página de inicio
-            window.location.href = '../Main/Main.php';
-        } else {
-            // Crear una alerta de Bootstrap
-            var alertDiv = document.createElement('div');
-            alertDiv.classList.add('alert', 'alert-danger');
-            alertDiv.textContent = data.error;
-
-            // Agregar la alerta al DOM
-            document.querySelector('.modal-body').appendChild(alertDiv);
-        }
-    })
-    .catch(error => {
-        console.error('Error:', error);
-    });
-});
- </script>
+  // Capturar el envío del formulario y manejar la respuesta
+  document.querySelector('form').addEventListener('submit', function(event) {
+      event.preventDefault(); // Evitar que el formulario se envíe normalmente
+  
+      // Obtener los datos del formulario
+      var formData = new FormData(this);
+  
+      // Realizar una solicitud POST al servidor
+      fetch('./app/Login/Login.php', {
+          method: 'POST',
+          body: formData
+      })
+      .then(response => {
+          if (response.redirected) {
+              // Si la respuesta incluye una redirección, redirigir al destino
+              window.location.href = response.url;
+          } else {
+              // Convertir la respuesta a JSON
+              return response.json();
+          }
+      })
+      .then(data => {
+          // Eliminar cualquier alerta existente
+          var existingAlert = document.querySelector('.alert');
+          if (existingAlert) {
+              existingAlert.remove();
+          }
+  
+          // Verificar si la autenticación fue exitosa
+          if (data.success) {
+              // Redireccionar a la página de inicio
+              window.location.href = '../Main/Main.php';
+          } else {
+              // Crear una alerta de Bootstrap
+              var alertDiv = document.createElement('div');
+              alertDiv.classList.add('alert', 'alert-danger');
+              alertDiv.textContent = data.error;
+  
+              // Agregar la alerta al DOM
+              document.querySelector('.modal-body').appendChild(alertDiv);
+          }
+      })
+      .catch(error => {
+          console.error('Error:', error);
+      });
+  });
+   </script>
 
 
 </body>

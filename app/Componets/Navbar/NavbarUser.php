@@ -141,8 +141,7 @@ if (session_status() !== 2)
                             <!-- Nav tabs -->
                             <ul class="nav nav-tabs">
                                 <li class="nav-item">
-                                    <a class="nav-link active" data-bs-toggle="tab" href="#home">Organiza tus
-                                        documentos</a>
+                                    <a class="nav-link active" data-bs-toggle="tab" href="#home">Carpeta Asignada</a>
                                 </li>
                                 <p></p>
                                 <li class="nav-item">
@@ -155,19 +154,15 @@ if (session_status() !== 2)
 
                             <!-- Tab panes -->
                             <div class="tab-content">
-                                <div class="tab-pane container active" id="home">Nuestro sistema te permite organizar
+                                <div class="tab-pane container active" id="home">Nuestros contadores te asignaran una carpeta para organizar
                                     tus documentos de manera inteligente y eficiente.
-                                    Clasifica tus archivos en categorías específicas como: facturas, recibos, estados de
-                                    cuenta y más, para una gestión ordenada y sin complicaciones.
-                                    <li>Ingresa a la carpeta donde subiras tus documentos para una mejor organizacion
-                                    </li>
-                                    <li>En caso de que no veas la carpeta correspondiente puedes crear una nueva</li>
-                                    <li>Supervisa que tus archivos esten organizados correctamente.</li>
+                                    identifica tus archivos que se te requirieron asi como: facturas, recibos, estados de
+                                    cuenta y más, para tener una gestión ordenada y sin complicaciones.
+            
                                 </div>
                                 <div class="tab-pane container fade" id="menu1">Con nuestra plataforma, subir tus
-                                    documentos es un proceso rápido y sencillo. Simplemente arrastra y suelta tus
-                                    archivos en el área designada o selecciona los
-                                    documentos desde tu dispositivo, y nosotros nos encargaremos del resto.
+                                    documentos es un proceso rápido y sencillo. Simplemente dirigete al boton de seleccionar documentos
+                                     y selecciona los documentos desde tu dispositivo, y nosotros nos encargaremos del resto.
                                     <li>Ahora con un solo clic puedes subir tus archivos para que trabajemos por ti.
                                     </li>
                                     <li>Si subes un archivo por error, no te preocupes ya que podras eliminarlo si asi
@@ -177,7 +172,6 @@ if (session_status() !== 2)
                                 <div class="tab-pane container fade" id="menu2">Con nuestra plataforma, descargar tus
                                     documentos es rápido y sencillo solo encuentra el archivo que necesitas en nuestra
                                     interfaz intuitiva y descárgalo con un solo clic.
-                                    <li>Busca el archivo y decarga el archivo que tengas disponible.
                                     </li>
                                     <li>En caso de no contar con los permisos, contacta a soporte.
                                     </li>

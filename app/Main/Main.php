@@ -25,13 +25,14 @@ if ($_SESSION['user']) {
         }
         ?>
         <div class="mx-5">
-            <h1>
-                Bievenido <?php echo $_SESSION['nombre'] ?>
+
+            <h1 class="texto-blanco">
+                Bienvenido <?php echo $_SESSION['nombre'] ?>
             </h1>
             <div class="container-fluid w-100">
                 <div class="row">
                     <div class="col btn btn-light shadow-sm m-3">
-                        <a class="" id="registrarUsuarioModal">
+                    <a class="" href="../Registrar/TablaUsuarios.php">
                             <div class="d-flex justify-content-center">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" fill="currentColor"
                                     class="bi bi-person-add" viewBox="0 0 16 16">
@@ -42,12 +43,12 @@ if ($_SESSION['user']) {
                                 </svg>
                             </div>
                             <div class="d-flex justify-content-center">
-                                Registra Usuario
+                          Usuarios
                             </div>
                         </a>
                     </div>
                     <div class="col btn btn-light shadow-sm m-3">
-                        <a class="" href="http://">
+                    <a class="" href="../ArchivosAdmin/main.php">
                             <div class="d-flex justify-content-center">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" fill="currentColor"
                                     class="bi bi-gear" viewBox="0 0 16 16">
@@ -58,12 +59,12 @@ if ($_SESSION['user']) {
                                 </svg>
                             </div>
                             <div class="d-flex justify-content-center">
-                                Administrar Usuario
+                                Administrar Usuarios
                             </div>
                         </a>
                     </div>
                     <div class="col btn btn-light shadow-sm m-3">
-                        <a class="" href="../Main/Cliente.php">
+                        <a class="" href="../Busqueda/main.php">
                             <div class="d-flex justify-content-center">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" fill="currentColor"
                                     class="bi bi-search" viewBox="0 0 16 16">
@@ -77,7 +78,7 @@ if ($_SESSION['user']) {
                         </a>
                     </div>
                     <div class="col btn btn-light shadow-sm m-3">
-                        <a class="" href="http://">
+                    <a class="" href="../PermisosAdmin/main.php">
                             <div class="d-flex justify-content-center">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" fill="currentColor"
                                     class="bi bi-tools" viewBox="0 0 16 16">
@@ -86,7 +87,7 @@ if ($_SESSION['user']) {
                                 </svg>
                             </div>
                             <div class="d-flex justify-content-center">
-                                Permisos de usuario
+                                Permisos de usuarios
                             </div>
                         </a>
                     </div>

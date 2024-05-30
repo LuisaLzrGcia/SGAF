@@ -28,7 +28,7 @@ if ($_SESSION['user']) {
         </div>
     </div>
     <div class="bg-body-secondary p-3 m-5">
-        <h3>Carpeta asignada: <span class='text-white bg-black p-1'><?php echo $_SESSION['carpeta'];?></span>
+        <h3>Se te asigno la carpeta: <span class='text-white bg-black p-1'><?php echo $_SESSION['carpeta'];?></span>
         </h3>
         <div class="d-flex align-items-center">
             <div>

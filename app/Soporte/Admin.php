@@ -53,6 +53,7 @@ if ($_SESSION['user']) {
                 <thead>
                     <tr>
                         <th>Folio</th>
+                        <th>RFC</th>
                         <th>Nombre</th>
                         <th>Título</th>
                         <th>Descripción</th>
@@ -71,6 +72,7 @@ if ($_SESSION['user']) {
                         ?>
                     <tr>
                         <td><?php echo $ticket['num_seguimiento']; ?></td>
+                        <td><?php echo $ticket['rfc']; ?></td>
                         <td><?php echo $ticket['nombre']. " ".$ticket['apellido_pa']." ".$ticket['apellido_ma']; ?></td>
                         <td><?php echo $ticket['titulo']; ?></td>
                         <td><?php echo $ticket['descripcion']; ?></td>
@@ -96,6 +98,7 @@ if ($_SESSION['user']) {
                                 <button type="button" class="btn btn-primary modalVerDetalleBtn" data-bs-toggle="modal"
                                     data-bs-target="#modalDetalleTicket"
                                     data-id="<?php echo $ticket['num_seguimiento']; ?>"
+                                    data-id-usuario="<?php echo $ticket['rfc']; ?>"
                                     data-id-usuario="<?php echo $ticket['id_usuario']; ?>"
                                     data-nombre="<?php echo $ticket['nombre']; ?>"
                                     data-apellido-pa="<?php echo $ticket['apellido_pa']; ?>"

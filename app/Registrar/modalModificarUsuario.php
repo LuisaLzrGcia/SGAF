@@ -84,7 +84,80 @@
         document.getElementById('formularioU').action = './Eliminar.php';
     });
 
+    document.addEventListener('DOMContentLoaded', function () {
+    const formulario = document.getElementById('formularioU');
+    const emailInput = document.getElementById('emailF');
+    const rfcInput = document.getElementById('rfcF');
+    const passwordInput = document.getElementById('passwordF');
+    const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+    const rfcPattern = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{13}$/;
 
+    // Validaciones en tiempo real
+    emailInput.addEventListener('input', function () {
+        if (emailPattern.test(emailInput.value)) {
+            emailInput.setCustomValidity('');
+        } else {
+            emailInput.setCustomValidity('Por favor, ingrese un correo electrónico válido.');
+        }
+        emailInput.reportValidity();
+    });
+
+    rfcInput.addEventListener('input', function () {
+        if (rfcPattern.test(rfcInput.value)) {
+            rfcInput.setCustomValidity('');
+        } else {
+            rfcInput.setCustomValidity('El RFC debe contener exactamente 13 caracteres, incluyendo al menos una letra y un número.');
+        }
+        rfcInput.reportValidity();
+    });
+
+    passwordInput.addEventListener('input', function () {
+        if (passwordInput.value.length >= 8) {
+            passwordInput.setCustomValidity('');
+        } else {
+            passwordInput.setCustomValidity('La contraseña debe tener al menos 8 caracteres.');
+        }
+        passwordInput.reportValidity();
+    });
+
+    // Validaciones al enviar el formulario
+    formulario.addEventListener('submit', function (event) {
+        let formValid = true;
+
+        // Validación del correo electrónico
+        if (!emailPattern.test(emailInput.value)) {
+            formValid = false;
+            emailInput.setCustomValidity('Por favor, ingrese un correo electrónico válido.');
+            emailInput.reportValidity();
+        } else {
+            emailInput.setCustomValidity('');
+        }
+
+        // Validación del RFC
+        if (!rfcPattern.test(rfcInput.value)) {
+            formValid = false;
+            rfcInput.setCustomValidity('El RFC debe contener exactamente 13 caracteres, incluyendo al menos una letra y un número.');
+            rfcInput.reportValidity();
+        } else {
+            rfcInput.setCustomValidity('');
+        }
+
+        // Validación de la contraseña
+        if (passwordInput.value.length < 8) {
+            formValid = false;
+            passwordInput.setCustomValidity('La contraseña debe tener al menos 8 caracteres.');
+            passwordInput.reportValidity();
+        } else {
+            passwordInput.setCustomValidity('');
+        }
+
+        // Evitar el envío del formulario si alguna validación falla
+        if (!formValid) {
+            event.preventDefault();
+        }
+    });
+});
+   
     // Verificar el rol al cargar la página y mostrar/ocultar el botón "Eliminar" según corresponda
 
     document.addEventListener('DOMContentLoaded', function () {
